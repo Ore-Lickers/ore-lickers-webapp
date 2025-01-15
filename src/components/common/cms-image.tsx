@@ -1,8 +1,8 @@
-import { CMSImage } from "@/domain/cms/common";
+import { CMSImageType } from "@/domain/cms/common";
 import Image from "next/image";
 
 interface CMSImageParams {
-  readonly data: CMSImage;
+  readonly data: CMSImageType;
   readonly alt: string;
   readonly classes?: string;
 }

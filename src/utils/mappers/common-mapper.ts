@@ -1,6 +1,6 @@
-import { CMSImage, ImageType } from "@/domain/cms/common";
+import { CMSImageType, ImageType } from "@/domain/cms/common";
 
-export const mapCMSImage = (apiData: any): CMSImage => {
+export const mapCMSImage = (apiData: any): CMSImageType => {
   // TODO: Map new ContentType image object
   return {
     desktop: mapImageType(apiData),
