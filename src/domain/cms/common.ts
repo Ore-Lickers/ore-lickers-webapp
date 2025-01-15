@@ -1,4 +1,4 @@
-export type CMSImage = {
+export type CMSImageType = {
   desktop: ImageType;
   mobile: ImageType;
 };
