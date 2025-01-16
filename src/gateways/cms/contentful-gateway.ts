@@ -1,28 +1,72 @@
 import { ContentfulService } from "@/domain/cms/contentful-service";
-import { StaticPageContent } from "@/domain/cms/static-page";
-import { LOCALES } from "@/utils/constants/locales";
-import { mapStaticPageContent } from "@/utils/mappers/static-page-mapper";
-import { createClient } from "contentful";
+import { GetStaticPageParams, StaticPageType } from "@/domain/cms/static-page";
+import { GET_STATIC_PAGE } from "@/graphql/queries/static-page";
+import { mapStaticPage } from "@/utils/mappers/static-page-mapper";
+import {
+  ApolloClient,
+  createHttpLink,
+  from,
+  InMemoryCache,
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 
-const client = createClient({
-  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
-  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
+const httpLink = () => {
+  const spaceId = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID;
+  const env = process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT;
+
+  return createHttpLink({
+    uri: `https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/${env}`,
+  });
+};
+
+const authLink = setContext((_, { headers }) => {
+  const token = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!;
+  return {
+    headers: {
+      ...headers,
+      Authorization: `Bearer ${token}`,
+    },
+  };
+});
+
+const headerLink = setContext((_, { headers }) => ({
+  headers: {
+    ...headers,
+    "Content-Type": "application/json",
+  },
+}));
+
+const client = new ApolloClient({
+  link: from([authLink, headerLink, httpLink()]),
+  cache: new InMemoryCache(),
+  defaultOptions: {
+    watchQuery: {
+      fetchPolicy: "no-cache",
+    },
+    query: {
+      fetchPolicy: "no-cache",
+    },
+  },
 });
 
 const ContentfulGateway = (): ContentfulService => {
-  const getStaticPageContent = async (
-    id: string,
-    locale = LOCALES.DEFAULT
-  ): Promise<StaticPageContent> => {
-    const response = await client.getEntry(id, {
-      locale,
-      include: 3,
+  const getStaticPage = async ({
+    id,
+  }: GetStaticPageParams): Promise<StaticPageType> => {
+    const params = {
+      id,
+    };
+
+    const response = await client.query<any>({
+      query: GET_STATIC_PAGE,
+      variables: params,
     });
-    return mapStaticPageContent(response);
+
+    return mapStaticPage(response.data);
   };
 
   return {
-    getStaticPageContent,
+    getStaticPage,
   };
 };
 

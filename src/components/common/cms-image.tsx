@@ -1,8 +1,8 @@
-import { CMSImageType } from "@/domain/cms/common";
+import { ImageComponentType } from "@/domain/cms/common";
 import Image from "next/image";
 
 interface CMSImageParams {
-  readonly data: CMSImageType;
+  readonly data: ImageComponentType;
   readonly alt: string;
   readonly classes?: string;
 }
@@ -11,12 +11,13 @@ interface CMSImageParams {
 export default function CMSImage({ data, alt, classes }: CMSImageParams) {
   return (
     <div className={classes}>
-      <Image
+      hello
+      {/* <Image
         src={data.desktop.url}
         alt={alt}
         width={data.desktop.width}
         height={data.desktop.height}
-      />
+      /> */}
     </div>
   );
 }

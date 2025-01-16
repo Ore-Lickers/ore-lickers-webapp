@@ -3,7 +3,6 @@
 import ErrorMessage from "@/components/common/error-message";
 import Loading from "@/components/common/loading";
 import { HomeController } from "@/controllers/home-controller";
-import Image from "next/image";
 
 export default function Home() {
   const { data, isLoading, error } = HomeController().useHomePageContent();
@@ -21,7 +20,7 @@ export default function Home() {
       <div className="pb-5">
         <h1>{data?.title}</h1>
       </div>
-      {data?.imageOne && (
+      {/* {data?.imageOne && (
         <div className="flex justify-center">
           <Image
             src={data.imageOne.url}
@@ -46,7 +45,7 @@ export default function Home() {
             height={data.imageTwo.height}
           />
         </div>
-      )}
+      )} */}
     </main>
   );
 }

@@ -2,7 +2,7 @@
 
 import ErrorMessage from "@/components/common/error-message";
 import Loading from "@/components/common/loading";
-import Image from "next/image";
+//import Image from "next/image";
 import { AboutController } from "@/controllers/about-controller";
 
 export default function About() {
@@ -18,7 +18,8 @@ export default function About() {
 
   return (
     <main className="flex flex-col">
-      <div className="pb-5">
+      <div>hello</div>
+      {/* <div className="pb-5">
         <h1>{data?.title}</h1>
       </div>
       {data?.imageOne && (
@@ -46,7 +47,7 @@ export default function About() {
             height={data.imageTwo.height}
           />
         </div>
-      )}
+      )} */}
     </main>
   );
 }

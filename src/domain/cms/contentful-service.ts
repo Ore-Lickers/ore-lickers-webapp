@@ -1,5 +1,5 @@
-import { StaticPageContent } from "./static-page";
+import { GetStaticPageParams, StaticPageType } from "./static-page";
 
 export type ContentfulService = {
-  getStaticPageContent(id: string, locale?: string): Promise<StaticPageContent>;
+  getStaticPage(params: GetStaticPageParams): Promise<StaticPageType>;
 };

@@ -1,10 +1,22 @@
-export type CMSImageType = {
-  desktop: ImageType;
-  mobile: ImageType;
+export type EntryType = {
+  _id: string;
+  __typename: string;
 };
 
-export type ImageType = {
-  url: string;
-  width: number;
-  height: number;
+export type ImageComponentType = {
+  internalTitle: string;
+  title: string;
+  altText: string;
+  desktop: ContentfulImage;
+  mobile?: ContentfulImage;
+  url?: string;
+};
+
+export type ContentfulImage = {};
+
+export type LinkComponentType = {
+  internalTitle: string;
+  linkType: "Button" | "Hyperlink";
+  linkText: string;
+  redirectUrl: string;
 };
