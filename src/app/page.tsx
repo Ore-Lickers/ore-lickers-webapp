@@ -11,14 +11,20 @@ export default function Home() {
       <ErrorMessage message="Something went wrong when fetching homepage data." />
     );
   }
-  if (isLoading) {
+  if (isLoading || !data) {
     return <Loading />;
   }
 
   return (
     <main className="flex flex-col">
       <div className="pb-5">
-        <h1>{data?.title}</h1>
+        <h1>{data.title}</h1>
+        {data.overviewText && (
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{ __html: data.overviewText }}
+          />
+        )}
       </div>
       {/* {data?.imageOne && (
         <div className="flex justify-center">

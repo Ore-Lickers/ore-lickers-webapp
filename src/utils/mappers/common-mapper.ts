@@ -32,5 +32,7 @@ export const mapRichText = (richText: any): string | undefined => {
     },
   };
 
-  return richText ? documentToHtmlString(richText, options) : undefined;
+  return richText?.json
+    ? documentToHtmlString(richText.json, options)
+    : undefined;
 };

@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from "graphql-request";
 import { LINK_COMPONENT_FRAGMENT } from "../fragments/link-component";
 
 export const GET_STATIC_PAGE = gql`
