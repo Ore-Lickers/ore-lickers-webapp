@@ -21,11 +21,13 @@ body {
 h1 {
   font-size: 2.5rem;
   line-height: 2.75rem;
+  @apply pb-5;
 }
 
 h2 {
   font-size: 2rem;
   line-height: 2.75rem;
+  @apply pb-4;
 }
 
 h3 {
@@ -48,31 +50,63 @@ h6 {
   line-height: 1.75rem;
 }
 
-.content p {
+.btn {
+  @apply font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2;
+}
+
+.btn:focus {
+  @apply outline-none ring-4;
+}
+
+.btn-yellow {
+  @apply text-white bg-yellow-400;
+}
+
+.btn-yellow:hover {
+  @apply bg-yellow-500;
+}
+
+.btn-yellow:focus {
+  @apply ring-yellow-900;
+}
+
+.link {
+  @apply font-medium;
+}
+
+.link:hover {
+  @apply underline;
+}
+
+.link-yellow {
+  @apply text-yellow-500;
+}
+
+.rich-text p {
   margin-bottom: 10px;
   line-height: 1.5em;
 }
 
-.content th p {
+.rich-text th p {
   margin: 0;
 }
 
-.content td p {
+.rich-text td p {
   margin: 0;
 }
 
-.content ul {
+.rich-text ul {
   list-style: disc;
   padding: 5px;
   margin: 15px;
 }
 
-.content ol {
+.rich-text ol {
   list-style: decimal;
   padding: 5px;
   margin: 0 15px 10px;
 }
 
-.content ol p {
+.rich-text ol p {
   margin: 0;
 }

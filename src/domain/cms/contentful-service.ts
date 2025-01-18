@@ -1,5 +1,7 @@
-import { StaticPageContent } from "./static-page";
+import { ContentBlockType, GetContentByIdParams } from "./content";
+import { StaticPageResponse } from "./static-page";
 
 export type ContentfulService = {
-  getStaticPageContent(id: string, locale?: string): Promise<StaticPageContent>;
+  getStaticPage(params: GetContentByIdParams): Promise<StaticPageResponse>;
+  getContentBlock(params: GetContentByIdParams): Promise<ContentBlockType>;
 };

@@ -1,20 +1,20 @@
 import { ContentfulGateway } from "@/gateways/cms/contentful-gateway";
 import { contentfulSettings } from "@/settings/contentful-settings";
-import { getStaticPageContent } from "@/use-cases/get-static-page-content";
-import { useQuery } from "react-query";
+import { getStaticPage } from "@/use-cases/get-static-page";
+import { useQuery } from "@tanstack/react-query";
 
 const settings = contentfulSettings[process.env.NODE_ENV];
 
 export const AboutController = () => {
   const getAboutPageContent = async () => {
-    return await getStaticPageContent(
-      ContentfulGateway(),
-      settings.aboutUsContentId
-    );
+    return await getStaticPage(ContentfulGateway(), settings.aboutUsContentId);
   };
 
   const useAboutPageContent = () =>
-    useQuery("useAboutPageContent", getAboutPageContent);
+    useQuery({
+      queryKey: ["useAboutPageContent"],
+      queryFn: getAboutPageContent,
+    });
 
   return {
     useAboutPageContent,
