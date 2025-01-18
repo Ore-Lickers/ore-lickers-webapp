@@ -15,6 +15,8 @@ export type ImageComponentType = {
 
 export type ContentfulImage = {
   url: string;
+  height: number;
+  width: number;
 };
 
 export type LinkComponentType = {

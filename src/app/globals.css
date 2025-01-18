@@ -21,11 +21,13 @@ body {
 h1 {
   font-size: 2.5rem;
   line-height: 2.75rem;
+  @apply pb-5;
 }
 
 h2 {
   font-size: 2rem;
   line-height: 2.75rem;
+  @apply pb-4;
 }
 
 h3 {
@@ -80,31 +82,31 @@ h6 {
   @apply text-yellow-500;
 }
 
-.content p {
+.rich-text p {
   margin-bottom: 10px;
   line-height: 1.5em;
 }
 
-.content th p {
+.rich-text th p {
   margin: 0;
 }
 
-.content td p {
+.rich-text td p {
   margin: 0;
 }
 
-.content ul {
+.rich-text ul {
   list-style: disc;
   padding: 5px;
   margin: 15px;
 }
 
-.content ol {
+.rich-text ol {
   list-style: decimal;
   padding: 5px;
   margin: 0 15px 10px;
 }
 
-.content ol p {
+.rich-text ol p {
   margin: 0;
 }

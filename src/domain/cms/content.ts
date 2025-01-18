@@ -7,6 +7,7 @@ export type GetContentByIdParams = {
 };
 
 export type ContentBlockType = {
+  __typename: string;
   title?: string;
   description1?: string;
   image?: ImageComponentType;

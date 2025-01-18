@@ -3,7 +3,9 @@
 import ErrorMessage from "@/components/common/error-message";
 import LinkComponent from "@/components/common/link-component";
 import Loading from "@/components/common/loading";
+import ContentBlock from "@/components/content/content-block";
 import { HomeController } from "@/controllers/home-controller";
+import { CONTENT_TYPE } from "@/utils/constants/contentful";
 
 export default function Home() {
   const { data, isLoading, error } = HomeController().useHomePageContent();
@@ -18,44 +20,23 @@ export default function Home() {
 
   return (
     <main className="flex flex-col">
-      <div className="pb-5">
+      <div className="mb-10">
         <h1>{data.title}</h1>
-      </div>
-      {data.overviewText && (
-        <div
-          className="content"
-          dangerouslySetInnerHTML={{ __html: data.overviewText }}
-        />
-      )}
-      <div>
+        {data.overviewText && (
+          <div
+            className="rich-text"
+            dangerouslySetInnerHTML={{ __html: data.overviewText }}
+          />
+        )}
         {data.overviewButton && <LinkComponent data={data.overviewButton} />}
       </div>
-      {/* {data?.imageOne && (
-        <div className="flex justify-center">
-          <Image
-            src={data.imageOne.url}
-            alt="Image1"
-            width={data.imageOne.width}
-            height={data.imageOne.height}
-          />
-        </div>
-      )}
-      <div className="leading-[2em] mb-10">
-        <div
-          className="content"
-          dangerouslySetInnerHTML={{ __html: data?.contentBlock! }}
-        />
+      <div>
+        {data.content.map((item, i) => {
+          if (item.__typename === CONTENT_TYPE.CONTENT_BLOCK) {
+            return <ContentBlock key={"content-" + i} data={item} />;
+          }
+        })}
       </div>
-      {data?.imageTwo && (
-        <div className="flex justify-center">
-          <Image
-            src={data.imageTwo.url}
-            alt="Image2"
-            width={data.imageTwo.width}
-            height={data.imageTwo.height}
-          />
-        </div>
-      )} */}
     </main>
   );
 }

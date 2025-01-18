@@ -6,10 +6,11 @@ import {
 } from "./common-mapper";
 
 export const mapContentBlock = (apiData: any): ContentBlockType => {
-  const { title, description1, image, description2, link } =
+  const { __typename, title, description1, image, description2, link } =
     apiData.contentBlock;
 
   return {
+    __typename,
     title,
     image: mapImageComponent(image),
     description1: mapRichText(description1),

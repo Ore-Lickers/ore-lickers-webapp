@@ -3,21 +3,18 @@ import Image from "next/image";
 
 interface CMSImageParams {
   readonly data: ImageComponentType;
-  readonly alt: string;
-  readonly classes?: string;
 }
 
 // TODO: Currently in the mapper it is mapping the same image for mobile and desktop. Change this to have separate images for mobile and desktop
-export default function CMSImage({ data, alt, classes }: CMSImageParams) {
+export default function ImageComponent({ data }: CMSImageParams) {
   return (
-    <div className={classes}>
-      hello
-      {/* <Image
+    <div>
+      <Image
         src={data.desktop.url}
-        alt={alt}
-        width={data.desktop.width}
+        alt={data.altText}
         height={data.desktop.height}
-      /> */}
+        width={data.desktop.width}
+      />
     </div>
   );
 }

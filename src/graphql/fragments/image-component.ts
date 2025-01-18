@@ -6,9 +6,13 @@ export const IMAGE_COMPONENT_FRAGMENT = gql`
     altText
     desktop {
       url
+      height
+      width
     }
     mobile {
       url
+      height
+      width
     }
     url
   }

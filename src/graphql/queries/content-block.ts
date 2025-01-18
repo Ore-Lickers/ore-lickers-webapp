@@ -7,6 +7,7 @@ export const GET_CONTENT_BLOCK = gql`
   ${LINK_COMPONENT_FRAGMENT}
   query GetContentBlock($id: String!) {
     contentBlock(id: $id) {
+      __typename
       title
       description1 {
         json
