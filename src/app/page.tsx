@@ -19,13 +19,13 @@ export default function Home() {
     <main className="flex flex-col">
       <div className="pb-5">
         <h1>{data.title}</h1>
-        {data.overviewText && (
-          <div
-            className="content"
-            dangerouslySetInnerHTML={{ __html: data.overviewText }}
-          />
-        )}
       </div>
+      {data.overviewText && (
+        <div
+          className="content"
+          dangerouslySetInnerHTML={{ __html: data.overviewText }}
+        />
+      )}
       {/* {data?.imageOne && (
         <div className="flex justify-center">
           <Image

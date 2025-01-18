@@ -1,7 +1,7 @@
-import { StaticPageType } from "@/domain/cms/static-page";
+import { StaticPageResponse } from "@/domain/cms/static-page";
 import { mapRichText } from "./common-mapper";
 
-export const mapStaticPage = (apiData: any): StaticPageType => {
+export const mapStaticPage = (apiData: any): StaticPageResponse => {
   const { title, overviewText, overviewButton, contentCollection } =
     apiData.staticPage;
   return {

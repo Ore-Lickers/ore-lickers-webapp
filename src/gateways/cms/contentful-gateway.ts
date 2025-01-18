@@ -1,6 +1,9 @@
+import { ContentBlockType, GetContentByIdParams } from "@/domain/cms/content";
 import { ContentfulService } from "@/domain/cms/contentful-service";
-import { GetStaticPageParams, StaticPageType } from "@/domain/cms/static-page";
+import { StaticPageResponse } from "@/domain/cms/static-page";
+import { GET_CONTENT_BLOCK } from "@/graphql/queries/content-block";
 import { GET_STATIC_PAGE } from "@/graphql/queries/static-page";
+import { mapContentBlock } from "@/utils/mappers/content-mapper";
 import { mapStaticPage } from "@/utils/mappers/static-page-mapper";
 import { GraphQLClient } from "graphql-request";
 
@@ -19,7 +22,7 @@ const client = new GraphQLClient(endpoint, {
 const ContentfulGateway = (): ContentfulService => {
   const getStaticPage = async ({
     id,
-  }: GetStaticPageParams): Promise<StaticPageType> => {
+  }: GetContentByIdParams): Promise<StaticPageResponse> => {
     const params = {
       id,
     };
@@ -28,8 +31,20 @@ const ContentfulGateway = (): ContentfulService => {
     return mapStaticPage(response);
   };
 
+  const getContentBlock = async ({
+    id,
+  }: GetContentByIdParams): Promise<ContentBlockType> => {
+    const params = {
+      id,
+    };
+
+    const response = await client.request<any>(GET_CONTENT_BLOCK, params);
+    return mapContentBlock(response);
+  };
+
   return {
     getStaticPage,
+    getContentBlock,
   };
 };
 

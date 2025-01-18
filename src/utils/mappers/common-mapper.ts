@@ -1,3 +1,4 @@
+import { ImageComponentType, LinkComponentType } from "@/domain/cms/common";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 
@@ -35,4 +36,14 @@ export const mapRichText = (richText: any): string | undefined => {
   return richText?.json
     ? documentToHtmlString(richText.json, options)
     : undefined;
+};
+
+export const mapImageComponent = (
+  image: any
+): ImageComponentType | undefined => {
+  return image || undefined;
+};
+
+export const mapLinkComponent = (link: any): LinkComponentType | undefined => {
+  return link || undefined;
 };

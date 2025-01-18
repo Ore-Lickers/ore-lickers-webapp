@@ -16,7 +16,9 @@ export const GET_STATIC_PAGE = gql`
         items {
           __typename
           ... on ContentBlock {
-            _id
+            sys {
+              id
+            }
           }
         }
       }

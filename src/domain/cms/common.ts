@@ -1,10 +1,11 @@
 export type EntryType = {
-  _id: string;
+  sys: {
+    id: string;
+  };
   __typename: string;
 };
 
 export type ImageComponentType = {
-  internalTitle: string;
   title: string;
   altText: string;
   desktop: ContentfulImage;
@@ -12,10 +13,11 @@ export type ImageComponentType = {
   url?: string;
 };
 
-export type ContentfulImage = {};
+export type ContentfulImage = {
+  url: string;
+};
 
 export type LinkComponentType = {
-  internalTitle: string;
   linkType: "Button" | "Hyperlink";
   linkText: string;
   redirectUrl: string;
