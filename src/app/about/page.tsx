@@ -2,7 +2,7 @@
 
 import ErrorMessage from "@/components/common/error-message";
 import Loading from "@/components/common/loading";
-//import Image from "next/image";
+import StaticPage from "@/components/content/static-page";
 import { AboutController } from "@/controllers/about-controller";
 
 export default function About() {
@@ -12,42 +12,13 @@ export default function About() {
       <ErrorMessage message="Something went wrong when fetching aboutpage data." />
     );
   }
-  if (isLoading) {
+  if (isLoading || !data) {
     return <Loading />;
   }
 
   return (
     <main className="flex flex-col">
-      <div>hello</div>
-      {/* <div className="pb-5">
-        <h1>{data?.title}</h1>
-      </div>
-      {data?.imageOne && (
-        <div className="flex justify-center">
-          <Image
-            src={data.imageOne.url}
-            alt="Image1"
-            width={data.imageOne.width}
-            height={data.imageOne.height}
-          />
-        </div>
-      )}
-      <div className="leading-[2em] mb-10">
-        <div
-          className="content"
-          dangerouslySetInnerHTML={{ __html: data?.contentBlock! }}
-        />
-      </div>
-      {data?.imageTwo && (
-        <div className="flex justify-center">
-          <Image
-            src={data.imageTwo.url}
-            alt="Image2"
-            width={data.imageTwo.width}
-            height={data.imageTwo.height}
-          />
-        </div>
-      )} */}
+      <StaticPage data={data} />
     </main>
   );
 }
