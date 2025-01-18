@@ -7,14 +7,12 @@ export const mapRichText = (richText: any): string | undefined => {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: ({
         data: {
-          target: { fields },
+          target: { sys },
         },
       }: any) => {
-        const { contentType } = fields.file;
-        if (contentType.startsWith("image/")) {
-          return `<img src="${fields.file.url}" height="${fields.file.details.image.height}" width="${fields.file.details.image.width}" alt="${fields.description}"/>`;
-        }
-        return "Asset Type not supported...";
+        const { block } = richText.links.assets;
+        const image = block.find((asset: any) => asset.sys.id === sys.id);
+        return `<img src="${image.url}" height="${image.height}" width="${image.width}" alt="${image.title}"/>`;
       },
       [BLOCKS.PARAGRAPH]: (node: any, next: any) =>
         `<p>${next(node.content).replace(/\n/g, "<br/>")}</p>`,
