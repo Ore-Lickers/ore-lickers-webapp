@@ -1,6 +1,7 @@
 "use client";
 
 import ErrorMessage from "@/components/common/error-message";
+import LinkComponent from "@/components/common/link-component";
 import Loading from "@/components/common/loading";
 import { HomeController } from "@/controllers/home-controller";
 
@@ -26,6 +27,9 @@ export default function Home() {
           dangerouslySetInnerHTML={{ __html: data.overviewText }}
         />
       )}
+      <div>
+        {data.overviewButton && <LinkComponent data={data.overviewButton} />}
+      </div>
       {/* {data?.imageOne && (
         <div className="flex justify-center">
           <Image
