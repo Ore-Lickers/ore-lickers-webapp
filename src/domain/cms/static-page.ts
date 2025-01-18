@@ -1,13 +1,16 @@
-import { ImageType } from "./common";
+import { EntryType, LinkComponentType } from "./common";
+import { ContentBlockType } from "./content";
 
-export type StaticPageContent = {
+export type StaticPageResponse = {
   title: string;
-  imageOne?: ImageType;
-  contentBlock: string;
-  imageTwo?: ImageType;
+  overviewText?: string;
+  overviewButton?: LinkComponentType;
+  content: EntryType[];
 };
 
-export type GetStaticPageContentParams = {
-  id: string;
-  locale?: string;
+export type StaticPageType = {
+  title: string;
+  overviewText?: string;
+  overviewButton?: LinkComponentType;
+  content: ContentBlockType[];
 };
