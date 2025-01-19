@@ -50,7 +50,7 @@ export default function Header() {
             <li>
               <Link
                 href="/"
-                className="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group"
+                className="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 hover:no-underline group"
                 onClick={closeNavigation}
               >
                 <FaHouseChimney className="w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white" />
@@ -60,7 +60,7 @@ export default function Header() {
             <li>
               <Link
                 href="/about"
-                className="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group"
+                className="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 hover:no-underline group"
                 onClick={closeNavigation}
               >
                 <FaUsers className=" w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white" />
