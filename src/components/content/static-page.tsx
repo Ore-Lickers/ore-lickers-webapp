@@ -10,16 +10,18 @@ interface StaticPageParams {
 export default function StaticPage({ data }: StaticPageParams) {
   return (
     <div>
-      <div className="mb-10">
-        <h1>{data.title}</h1>
-        {data.overviewText && (
-          <div
-            className="rich-text"
-            dangerouslySetInnerHTML={{ __html: data.overviewText }}
-          />
-        )}
-        {data.overviewButton && <LinkComponent data={data.overviewButton} />}
-      </div>
+      <h1>{data.title}</h1>
+      {(data.overviewText || data.overviewButton) && (
+        <div className="mb-10">
+          {data.overviewText && (
+            <div
+              className="rich-text"
+              dangerouslySetInnerHTML={{ __html: data.overviewText }}
+            />
+          )}
+          {data.overviewButton && <LinkComponent data={data.overviewButton} />}
+        </div>
+      )}
       <div>
         {data.content.map((item, i) => {
           if (item.__typename === CONTENT_TYPE.CONTENT_BLOCK) {
