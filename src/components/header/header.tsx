@@ -3,7 +3,14 @@
 import { useUIStore } from "@/store/uiStore";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { FaBars, FaHouseChimney, FaUsers } from "react-icons/fa6";
+import {
+  FaBars,
+  FaCircleQuestion,
+  FaHandshake,
+  FaHouseChimney,
+  FaUsers,
+  FaWallet,
+} from "react-icons/fa6";
 
 function useClickOutside(ref: any, onClickOutside: Function) {
   useEffect(() => {
@@ -55,6 +62,38 @@ export default function Header() {
               >
                 <FaHouseChimney className="w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white" />
                 <span className="ms-3">Home</span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/how-to"
+                className="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 hover:no-underline group"
+                onClick={closeNavigation}
+              >
+                <FaCircleQuestion className=" w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white" />
+                <span className="flex-1 ms-3 whitespace-nowrap">How to</span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/buy-back"
+                className="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 hover:no-underline group"
+                onClick={closeNavigation}
+              >
+                <FaWallet className=" w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white" />
+                <span className="flex-1 ms-3 whitespace-nowrap">Buy back</span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/recruitment"
+                className="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 hover:no-underline group"
+                onClick={closeNavigation}
+              >
+                <FaHandshake className=" w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white" />
+                <span className="flex-1 ms-3 whitespace-nowrap">
+                  Recruitment
+                </span>
               </Link>
             </li>
             <li>
