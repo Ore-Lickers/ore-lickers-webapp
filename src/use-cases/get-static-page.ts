@@ -12,6 +12,9 @@ export const getStaticPage = async (
     if (entry.__typename === CONTENT_TYPE.CONTENT_BLOCK) {
       const contentBlock = await service.getContentBlock({ id: entry.sys.id });
       contentBlocks.push(contentBlock);
+    } else if (entry.__typename === CONTENT_TYPE.CARD_BLOCK) {
+      const cardBlock = await service.getCardBlock({ id: entry.sys.id });
+      contentBlocks.push(cardBlock);
     } else {
       throw new Error(`Content type [${entry.__typename}] not found`);
     }
