@@ -14,3 +14,8 @@ export const CARD_BLOCK_LAYOUT = {
   TWO_ONE: "2 - 1",
   ONE_ONE_ONE_ONE: "1 - 1 - 1 - 1",
 };
+
+export const CARD_LAYOUT = {
+  VERTICAL: "Vertical",
+  HORIZONTAL: "Horizontal",
+};

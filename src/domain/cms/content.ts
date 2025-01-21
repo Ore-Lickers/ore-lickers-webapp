@@ -23,6 +23,7 @@ export type CardBlockType = {
 };
 
 export type CardType = {
+  layout: "Vertical" | "Horizontal";
   image?: ImageComponentType;
   title?: string;
   description: string;

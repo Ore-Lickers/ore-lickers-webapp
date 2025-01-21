@@ -71,6 +71,7 @@ a:hover {
 
 .btn-yellow {
   @apply text-white bg-yellow-400;
+  border-width: 0px;
 }
 
 .btn-yellow:hover {

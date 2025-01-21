@@ -2,6 +2,8 @@ import { StaticPageType } from "@/domain/cms/static-page";
 import LinkComponent from "@/components/common/link-component";
 import ContentBlock from "@/components/content/content-block";
 import { CONTENT_TYPE } from "@/utils/constants/contentful";
+import CardBlock from "./card-block";
+import { CardBlockType, ContentBlockType } from "@/domain/cms/content";
 
 interface StaticPageParams {
   readonly data: StaticPageType;
@@ -25,10 +27,15 @@ export default function StaticPage({ data }: StaticPageParams) {
       <div>
         {data.content.map((item, i) => {
           if (item.__typename === CONTENT_TYPE.CONTENT_BLOCK) {
-            return <ContentBlock key={"content-" + i} data={item} />;
+            return (
+              <ContentBlock
+                key={"content-" + i}
+                data={item as ContentBlockType}
+              />
+            );
           }
           if (item.__typename === CONTENT_TYPE.CARD_BLOCK) {
-            return <div key={"card-" + i}>{item.title}</div>;
+            return <CardBlock key={"card-" + i} data={item as CardBlockType} />;
           }
         })}
       </div>

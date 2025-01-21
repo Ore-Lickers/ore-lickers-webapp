@@ -6,9 +6,13 @@ import { useRouter } from "next/navigation";
 
 interface LinkComponentParams {
   readonly data: LinkComponentType;
+  readonly classes?: string;
 }
 
-export default function LinkComponent({ data }: LinkComponentParams) {
+export default function LinkComponent({
+  data,
+  classes = "",
+}: LinkComponentParams) {
   const router = useRouter();
   const handleClick = (event: any): void => {
     event.preventDefault();
@@ -17,14 +21,14 @@ export default function LinkComponent({ data }: LinkComponentParams) {
 
   if (data.linkType === BUTTON_TYPE.BUTTON) {
     return (
-      <Button className="btn btn-yellow" onClick={handleClick}>
+      <Button className={"btn btn-yellow " + classes} onClick={handleClick}>
         {data.linkText}
       </Button>
     );
   }
   if (data.linkType === BUTTON_TYPE.HYPERLINK) {
     return (
-      <Link className="link link-yellow" href={data.redirectUrl}>
+      <Link className={"link link-yellow " + classes} href={data.redirectUrl}>
         {data.linkText}
       </Link>
     );

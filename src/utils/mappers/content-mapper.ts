@@ -44,8 +44,9 @@ export const mapCards = (cards: any): CardType[] => {
 };
 
 export const mapCard = (card: any): CardType => {
-  const { title, description, link, image } = card;
+  const { title, description, link, image, layout } = card;
   return {
+    layout,
     image: mapImageComponent(image),
     title,
     description: mapRichText(description)!,
