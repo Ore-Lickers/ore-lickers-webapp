@@ -27,6 +27,9 @@ export default function StaticPage({ data }: StaticPageParams) {
           if (item.__typename === CONTENT_TYPE.CONTENT_BLOCK) {
             return <ContentBlock key={"content-" + i} data={item} />;
           }
+          if (item.__typename === CONTENT_TYPE.CARD_BLOCK) {
+            return <div key={"card-" + i}>{item.title}</div>;
+          }
         })}
       </div>
     </div>

@@ -29,6 +29,11 @@ export const GET_STATIC_PAGE = gql`
               id
             }
           }
+          ... on CardBlock {
+            sys {
+              id
+            }
+          }
         }
       }
     }

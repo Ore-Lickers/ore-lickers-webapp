@@ -14,3 +14,17 @@ export type ContentBlockType = {
   description2?: string;
   link?: LinkComponentType;
 };
+
+export type CardBlockType = {
+  __typename: string;
+  title?: string;
+  layout: "1 - 1 - 1" | "1 - 2" | "2 - 1" | "1 - 1 - 1 - 1";
+  cards: CardType[];
+};
+
+export type CardType = {
+  image?: ImageComponentType;
+  title?: string;
+  description: string;
+  link?: LinkComponentType;
+};
