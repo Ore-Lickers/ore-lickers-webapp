@@ -18,13 +18,13 @@ export default function CardBlock({ data }: CardBlockParams) {
   };
   const gridCols =
     data.layout === CARD_BLOCK_LAYOUT.ONE_ONE_ONE_ONE
-      ? "grid-cols-4"
-      : "grid-cols-3";
+      ? "md:grid-cols-4"
+      : "md:grid-cols-3";
 
   return (
     <div className="mb-5">
       {data.title && <h2>{data.title}</h2>}
-      <div className={"grid gap-4 " + gridCols}>
+      <div className={"grid gap-4 grid-cols-1 " + gridCols}>
         {data.cards.map((card, i) => {
           return (
             <Card key={"card-" + i} data={card} classes={addSpanClass(i)} />

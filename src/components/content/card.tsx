@@ -19,10 +19,7 @@ export default function Card({ data, classes = "" }: CardParams) {
         }
       >
         {data.image && (
-          <ImageComponent
-            data={data.image}
-            classes="object-contain w-full h-48"
-          />
+          <ImageComponent data={data.image} classes="rounded-t-lg" />
         )}
         <div className="p-5">
           {data.title && (
@@ -30,12 +27,45 @@ export default function Card({ data, classes = "" }: CardParams) {
               {data.title}
             </h5>
           )}
-          {data.description && <Description data={data.description} />}
+          {data.description && (
+            <Description
+              data={data.description}
+              classes="mb-3 font-normal text-gray-400"
+            />
+          )}
           {data.link && <LinkComponent data={data.link} />}
         </div>
       </div>
     );
   }
 
-  return <div className="">{data.title}</div>;
+  return (
+    <div
+      className={
+        "flex flex-col items-center border rounded-lg shadow md:flex-row md:w-full border-gray-700 bg-gray-800 " +
+        classes
+      }
+    >
+      {data.image && (
+        <ImageComponent
+          data={data.image}
+          classes="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
+        />
+      )}
+      <div className="flex flex-col justify-between p-4 leading-normal">
+        {data.title && (
+          <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
+            {data.title}
+          </h5>
+        )}
+        {data.description && (
+          <Description
+            data={data.description}
+            classes="mb-3 font-normal text-gray-400"
+          />
+        )}
+        <div>{data.link && <LinkComponent data={data.link} />}</div>
+      </div>
+    </div>
+  );
 }
