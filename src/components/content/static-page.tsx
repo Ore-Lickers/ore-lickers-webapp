@@ -11,7 +11,7 @@ interface StaticPageParams {
 
 export default function StaticPage({ data }: StaticPageParams) {
   return (
-    <div>
+    <div className="container mx-auto">
       <h1>{data.title}</h1>
       {(data.overviewText || data.overviewButton) && (
         <div className="mb-10">
