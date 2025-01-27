@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# EVE Online - Ore Lickers site
+
+Ore Lickers is a corporation within the MMORPG EVE Online. This webapp shows information about our corporation, who we are, what we do and our services. We mainly focus on the Industry part within the game. The site itself is built on the framework called [Next.js](https://nextjs.org/).
+
+## Requirements
+
+There are a couple of tools required to get the project up and running:
+
+1. An IDE, I personally recommend VSCode
+2. Node
+3. Git
 
 ## Getting Started
+
+### Setup
+
+To get the project on your local machine, use the command:
+
+```
+git clone git@github.com:SheepTheWeeb/eve-ore-lickers.git
+```
+
+After cloning the project, go to the root folder and create a copy of ".env.local.template" in the same folder. Rename this file to ".env.local" and fill in the environment variables.
+
+Then you can install the dependencies by running:
+
+```
+npm install
+```
+
+### Running development server
 
 First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+After compiling you can open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build & Deploy
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+These commands are mostly for deployment, but if you want to build the application, run:
 
-## Learn More
+```
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+After building the webapp, the compiled code is generated in the ".next" folder.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+For running the build, run:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+npm start
+```
 
-## Deploy on Vercel
+After starting the build you can open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+For our webapp we have Continues Deployment (CD) in place. When merging changes to the "main" branch, these changes will be deployed on our website that is hosted on Vercel.
+
+## More information
+
+For more information on the webapp, please visit our [Wiki page](https://github.com/SheepTheWeeb/eve-ore-lickers/wiki)
