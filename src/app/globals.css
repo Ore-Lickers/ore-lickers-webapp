@@ -61,27 +61,6 @@ a:hover {
   @apply underline;
 }
 
-.btn {
-  @apply font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2;
-}
-
-.btn:focus {
-  @apply outline-none ring-4;
-}
-
-.btn-yellow {
-  @apply text-white bg-yellow-400;
-  border-width: 0px;
-}
-
-.btn-yellow:hover {
-  @apply bg-yellow-500;
-}
-
-.btn-yellow:focus {
-  @apply ring-yellow-900;
-}
-
 .rich-text p {
   margin: 0 0 10px;
   line-height: 1.5em;
