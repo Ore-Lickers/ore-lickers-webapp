@@ -1,14 +1,20 @@
 import {
   CardBlockType,
+  CarouselType,
   ContentBlockType,
   GetContentByIdParams,
 } from "@/domain/cms/content";
 import { ContentfulService } from "@/domain/cms/contentful-service";
 import { StaticPageResponse } from "@/domain/cms/static-page";
 import { GET_CARD_BLOCK } from "@/graphql/queries/card-block";
+import { GET_CAROUSEL } from "@/graphql/queries/carousel";
 import { GET_CONTENT_BLOCK } from "@/graphql/queries/content-block";
 import { GET_STATIC_PAGE } from "@/graphql/queries/static-page";
-import { mapCardBlock, mapContentBlock } from "@/utils/mappers/content-mapper";
+import {
+  mapCardBlock,
+  mapCarousel,
+  mapContentBlock,
+} from "@/utils/mappers/content-mapper";
 import { mapStaticPage } from "@/utils/mappers/static-page-mapper";
 import { GraphQLClient } from "graphql-request";
 
@@ -58,10 +64,22 @@ const ContentfulGateway = (): ContentfulService => {
     return mapCardBlock(response);
   };
 
+  const getCarousel = async ({
+    id,
+  }: GetContentByIdParams): Promise<CarouselType> => {
+    const params = {
+      id,
+    };
+
+    const response = await client.request<any>(GET_CAROUSEL, params);
+    return mapCarousel(response);
+  };
+
   return {
     getStaticPage,
     getContentBlock,
     getCardBlock,
+    getCarousel,
   };
 };
 

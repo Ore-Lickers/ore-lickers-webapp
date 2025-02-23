@@ -34,6 +34,11 @@ export const GET_STATIC_PAGE = gql`
               id
             }
           }
+          ... on Carousel {
+            sys {
+              id
+            }
+          }
         }
       }
     }

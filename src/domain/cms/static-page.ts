@@ -1,5 +1,5 @@
 import { EntryType, LinkComponentType } from "./common";
-import { CardBlockType, ContentBlockType } from "./content";
+import { CardBlockType, CarouselType, ContentBlockType } from "./content";
 
 export type StaticPageResponse = {
   title: string;
@@ -12,5 +12,5 @@ export type StaticPageType = {
   title: string;
   overviewText?: string;
   overviewButton?: LinkComponentType;
-  content: (ContentBlockType | CardBlockType)[];
+  content: (ContentBlockType | CardBlockType | CarouselType)[];
 };
