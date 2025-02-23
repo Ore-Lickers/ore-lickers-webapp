@@ -1,10 +1,12 @@
 import {
   CardBlockType,
   CardType,
+  CarouselType,
   ContentBlockType,
 } from "@/domain/cms/content";
 import {
   mapImageComponent,
+  mapImageComponents,
   mapLinkComponent,
   mapRichText,
 } from "./common-mapper";
@@ -51,5 +53,15 @@ export const mapCard = (card: any): CardType => {
     title,
     description: mapRichText(description)!,
     link: mapLinkComponent(link),
+  };
+};
+
+export const mapCarousel = (apiData: any): CarouselType => {
+  const { __typename, title, carouselItemsCollection } = apiData.carousel;
+  const carouselItems = carouselItemsCollection?.items || [];
+  return {
+    __typename,
+    title,
+    carouselItems: mapImageComponents(carouselItems),
   };
 };

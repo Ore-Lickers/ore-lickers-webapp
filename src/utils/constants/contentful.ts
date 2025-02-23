@@ -1,6 +1,7 @@
 export const CONTENT_TYPE = {
   CONTENT_BLOCK: "ContentBlock",
   CARD_BLOCK: "CardBlock",
+  CAROUSEL: "Carousel",
 };
 
 export const BUTTON_TYPE = {
