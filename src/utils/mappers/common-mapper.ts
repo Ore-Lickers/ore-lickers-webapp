@@ -36,6 +36,17 @@ export const mapRichText = (richText: any): string | undefined => {
     : undefined;
 };
 
+export const mapImageComponents = (images: any): ImageComponentType[] => {
+  const mappedImages: ImageComponentType[] = [];
+  for (const image of images) {
+    const mappedImage = mapImageComponent(image);
+    if (mappedImage) {
+      mappedImages.push(mappedImage);
+    }
+  }
+  return mappedImages;
+};
+
 export const mapImageComponent = (
   image: any
 ): ImageComponentType | undefined => {

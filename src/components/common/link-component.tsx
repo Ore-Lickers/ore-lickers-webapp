@@ -21,14 +21,14 @@ export default function LinkComponent({
 
   if (data.linkType === BUTTON_TYPE.BUTTON) {
     return (
-      <Button className={"btn btn-yellow " + classes} onClick={handleClick}>
+      <Button color="warning" className={" " + classes} onClick={handleClick}>
         {data.linkText}
       </Button>
     );
   }
   if (data.linkType === BUTTON_TYPE.HYPERLINK) {
     return (
-      <Link className={"link link-yellow " + classes} href={data.redirectUrl}>
+      <Link className={" " + classes} href={data.redirectUrl}>
         {data.linkText}
       </Link>
     );

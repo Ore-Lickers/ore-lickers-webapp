@@ -29,3 +29,9 @@ export type CardType = {
   description: string;
   link?: LinkComponentType;
 };
+
+export type CarouselType = {
+  __typename: string;
+  title?: string;
+  carouselItems: ImageComponentType[];
+};
