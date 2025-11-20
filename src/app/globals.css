@@ -52,56 +52,57 @@ h6 {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
-
-a {
-  @apply font-medium text-yellow-400;
-}
-
-a:hover {
-  @apply underline;
-}
-
-.rich-text p {
-  margin: 0 0 10px;
-  line-height: 1.5em;
-}
-
-.rich-text ul {
-  list-style: disc;
-  padding: 0 5px;
-  margin: 0 15px;
-
-  p {
-    margin: 0;
+.page-content {
+  a {
+    @apply font-medium text-yellow-400;
   }
-}
 
-.rich-text ol {
-  list-style: decimal;
-  padding: 0 5px;
-  margin: 0 15px;
-
-  p {
-    margin: 0;
+  a:hover {
+    @apply underline;
   }
-}
 
-.rich-text th {
-  @apply uppercase bg-gray-700;
-  padding: 12px 8px;
-  text-align: left;
-}
-
-.rich-text td,
-.rich-text th {
-  @apply border border-gray-700;
-  padding: 8px;
-  p {
-    margin: 0;
-    color: white;
+  .rich-text p {
+    margin: 0 0 10px;
+    line-height: 1.5em;
   }
-}
 
-.rich-text tr {
-  @apply border-gray-700 bg-gray-800;
+  .rich-text ul {
+    list-style: disc;
+    padding: 0 5px;
+    margin: 0 15px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .rich-text ol {
+    list-style: decimal;
+    padding: 0 5px;
+    margin: 0 15px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .rich-text th {
+    @apply uppercase bg-gray-700;
+    padding: 12px 8px;
+    text-align: left;
+  }
+
+  .rich-text td,
+  .rich-text th {
+    @apply border border-gray-700;
+    padding: 8px;
+    p {
+      margin: 0;
+      color: white;
+    }
+  }
+
+  .rich-text tr {
+    @apply border-gray-700 bg-gray-800;
+  }
 }

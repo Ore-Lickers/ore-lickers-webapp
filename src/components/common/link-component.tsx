@@ -21,7 +21,7 @@ export default function LinkComponent({
 
   if (data.linkType === BUTTON_TYPE.BUTTON) {
     return (
-      <Button color="warning" className={" " + classes} onClick={handleClick}>
+      <Button className={"dark:bg-yellow-400 dark:hover:bg-yellow-500 " + classes} onClick={handleClick}>
         {data.linkText}
       </Button>
     );

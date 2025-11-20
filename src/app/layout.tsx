@@ -18,11 +18,11 @@ export default function RootLayout({
   readonly children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <Provider>
         <body className={inter.className}>
           <Header />
-          <div className="p-16 sm:ml-64">{children}</div>
+          <div className="p-16 sm:ml-64 page-content">{children}</div>
         </body>
       </Provider>
     </html>
