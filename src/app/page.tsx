@@ -6,7 +6,7 @@ import StaticPage from "@/components/content/static-page";
 import { HomeController } from "@/controllers/home-controller";
 
 export default function Home() {
-  const { data, isLoading, error } = HomeController().useHomePageContent();
+  const { data, isLoading, error } = HomeController.getHomepageContent();
   if (error) {
     return (
       <ErrorMessage message="Something went wrong when fetching homepage data." />

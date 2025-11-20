@@ -5,18 +5,12 @@ import { useQuery } from "@tanstack/react-query";
 
 const settings = contentfulSettings[process.env.NODE_ENV];
 
-export const HomeController = () => {
-  const getHomePageContent = async () => {
-    return await getStaticPage(ContentfulGateway(), settings.homePageContentId);
-  };
-
-  const useHomePageContent = () =>
-    useQuery({
+export class HomeController {
+  static getHomepageContent() {
+    return useQuery({
       queryKey: ["homePageContent"],
-      queryFn: getHomePageContent,
+      queryFn: () =>
+        getStaticPage(ContentfulGateway(), settings.homePageContentId),
     });
-
-  return {
-    useHomePageContent,
-  };
-};
+  }
+}
