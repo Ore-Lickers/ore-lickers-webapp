@@ -6,7 +6,7 @@ import StaticPage from "@/components/content/static-page";
 import { HowToController } from "@/controllers/how-to-controller";
 
 export default function HowTo() {
-  const { data, isLoading, error } = HowToController().useHowToPageContent();
+  const { data, isLoading, error } = HowToController.getHowToPageContent();
   if (error) {
     return (
       <ErrorMessage message="Something went wrong when fetching aboutpage data." />

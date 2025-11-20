@@ -18,69 +18,48 @@ import {
 import { mapStaticPage } from "@/utils/mappers/static-page-mapper";
 import { GraphQLClient } from "graphql-request";
 
-const spaceId = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID;
-const env = process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT;
-const token = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN;
-const endpoint = `https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/${env}`;
+export class ContentfulGateway implements ContentfulService {
+  private readonly client: GraphQLClient;
 
-const client = new GraphQLClient(endpoint, {
-  headers: {
-    Authorization: `Bearer ${token}`,
-    "Content-Type": "application/json",
-  },
-});
+  constructor(spaceId: string, env: string, token: string) {
+    const endpoint = `https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/${env}`;
+    this.client = new GraphQLClient(endpoint, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
+  }
 
-const ContentfulGateway = (): ContentfulService => {
-  const getStaticPage = async ({
+  async getStaticPage({
     id,
-  }: GetContentByIdParams): Promise<StaticPageResponse> => {
-    const params = {
+  }: GetContentByIdParams): Promise<StaticPageResponse> {
+    const response = await this.client.request<any>(GET_STATIC_PAGE, {
       id,
-    };
-
-    const response = await client.request<any>(GET_STATIC_PAGE, params);
+    });
     return mapStaticPage(response);
-  };
+  }
 
-  const getContentBlock = async ({
+  async getContentBlock({
     id,
-  }: GetContentByIdParams): Promise<ContentBlockType> => {
-    const params = {
+  }: GetContentByIdParams): Promise<ContentBlockType> {
+    const response = await this.client.request<any>(GET_CONTENT_BLOCK, {
       id,
-    };
-
-    const response = await client.request<any>(GET_CONTENT_BLOCK, params);
+    });
     return mapContentBlock(response);
-  };
+  }
 
-  const getCardBlock = async ({
-    id,
-  }: GetContentByIdParams): Promise<CardBlockType> => {
-    const params = {
+  async getCardBlock({ id }: GetContentByIdParams): Promise<CardBlockType> {
+    const response = await this.client.request<any>(GET_CARD_BLOCK, {
       id,
-    };
-
-    const response = await client.request<any>(GET_CARD_BLOCK, params);
+    });
     return mapCardBlock(response);
-  };
+  }
 
-  const getCarousel = async ({
-    id,
-  }: GetContentByIdParams): Promise<CarouselType> => {
-    const params = {
+  async getCarousel({ id }: GetContentByIdParams): Promise<CarouselType> {
+    const response = await this.client.request<any>(GET_CAROUSEL, {
       id,
-    };
-
-    const response = await client.request<any>(GET_CAROUSEL, params);
+    });
     return mapCarousel(response);
-  };
-
-  return {
-    getStaticPage,
-    getContentBlock,
-    getCardBlock,
-    getCarousel,
-  };
-};
-
-export { ContentfulGateway };
+  }
+}

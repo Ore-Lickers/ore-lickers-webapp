@@ -6,8 +6,7 @@ import StaticPage from "@/components/content/static-page";
 import { BuyBackController } from "@/controllers/buy-back-controller";
 
 export default function BuyBack() {
-  const { data, isLoading, error } =
-    BuyBackController().useBuyBackPageContent();
+  const { data, isLoading, error } = BuyBackController.getBuyBackPageContent();
   if (error) {
     return (
       <ErrorMessage message="Something went wrong when fetching aboutpage data." />

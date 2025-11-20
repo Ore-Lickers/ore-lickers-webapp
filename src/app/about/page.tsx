@@ -6,7 +6,7 @@ import StaticPage from "@/components/content/static-page";
 import { AboutController } from "@/controllers/about-controller";
 
 export default function About() {
-  const { data, isLoading, error } = AboutController().useAboutPageContent();
+  const { data, isLoading, error } = AboutController.getAboutPageContent();
   if (error) {
     return (
       <ErrorMessage message="Something went wrong when fetching aboutpage data." />
