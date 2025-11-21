@@ -1,4 +1,4 @@
-import { ImageComponentType } from "@/domain/cms/common";
+import { ImageComponentType } from "@/domain/cms/components/image-component";
 import Image from "next/image";
 
 interface CMSImageParams {

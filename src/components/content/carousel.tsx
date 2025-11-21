@@ -1,6 +1,6 @@
 import { Carousel } from "flowbite-react";
 import ImageComponent from "../common/image-component";
-import { CarouselType } from "@/domain/cms/content";
+import { CarouselType } from "@/domain/cms/components/carousel";
 
 interface CarouselParams {
   readonly data: CarouselType;

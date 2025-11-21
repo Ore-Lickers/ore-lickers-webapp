@@ -5,22 +5,14 @@ export type EntryType = {
   __typename: string;
 };
 
-export type ImageComponentType = {
-  title: string;
-  altText: string;
-  desktop: ContentfulImage;
-  mobile?: ContentfulImage;
-  url?: string;
+export type GetContentByIdParams = {
+  id: string;
+  locale?: string;
+  preview?: boolean;
 };
 
-export type ContentfulImage = {
-  url: string;
-  height: number;
-  width: number;
-};
-
-export type LinkComponentType = {
-  linkType: "Button" | "Hyperlink";
-  linkText: string;
-  redirectUrl: string;
+export type GetContentByPageParams = {
+  page: string;
+  locale?: string;
+  preview?: boolean;
 };

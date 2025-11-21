@@ -1,9 +1,6 @@
-import {
-  CardBlockType,
-  CardType,
-  CarouselType,
-  ContentBlockType,
-} from "@/domain/cms/content";
+import { CardBlockType, CardType } from "@/domain/cms/components/card";
+import { CarouselType } from "@/domain/cms/components/carousel";
+import { ContentBlockType } from "@/domain/cms/components/content-block";
 import {
   mapImageComponent,
   mapImageComponents,

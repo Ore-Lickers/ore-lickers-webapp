@@ -1,5 +1,5 @@
 import { ContentfulService } from "@/domain/cms/contentful-service";
-import { StaticPageType } from "@/domain/cms/static-page";
+import { StaticPageType } from "@/domain/cms/pages/static-page";
 import { CONTENT_TYPE } from "@/utils/constants/contentful";
 
 export const getStaticPage = async (

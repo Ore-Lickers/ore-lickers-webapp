@@ -1,5 +1,8 @@
-import { EntryType, LinkComponentType } from "./common";
-import { CardBlockType, CarouselType, ContentBlockType } from "./content";
+import { EntryType } from "../common";
+import { CardBlockType } from "../components/card";
+import { CarouselType } from "../components/carousel";
+import { ContentBlockType } from "../components/content-block";
+import { LinkComponentType } from "../components/link-component";
 
 export type StaticPageResponse = {
   title: string;

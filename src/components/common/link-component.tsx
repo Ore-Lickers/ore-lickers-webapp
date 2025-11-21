@@ -1,4 +1,4 @@
-import { LinkComponentType } from "@/domain/cms/common";
+import { LinkComponentType } from "@/domain/cms/components/link-component";
 import { BUTTON_TYPE } from "@/utils/constants/contentful";
 import { Button } from "flowbite-react";
 import Link from "next/link";
@@ -21,7 +21,10 @@ export default function LinkComponent({
 
   if (data.linkType === BUTTON_TYPE.BUTTON) {
     return (
-      <Button className={"dark:bg-yellow-400 dark:hover:bg-yellow-500 " + classes} onClick={handleClick}>
+      <Button
+        className={"dark:bg-yellow-400 dark:hover:bg-yellow-500 " + classes}
+        onClick={handleClick}
+      >
         {data.linkText}
       </Button>
     );

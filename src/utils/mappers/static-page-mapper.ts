@@ -1,4 +1,4 @@
-import { StaticPageResponse } from "@/domain/cms/static-page";
+import { StaticPageResponse } from "@/domain/cms/pages/static-page";
 import { mapRichText } from "./common-mapper";
 
 export const mapStaticPage = (apiData: any): StaticPageResponse => {

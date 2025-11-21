@@ -2,7 +2,7 @@
 
 import ErrorMessage from "@/components/common/error-message";
 import Loading from "@/components/common/loading";
-import StaticPage from "@/components/content/static-page";
+import CarouselComponent from "@/components/content/carousel";
 import { HomeController } from "@/controllers/home-controller";
 
 export default function Home() {
@@ -18,7 +18,18 @@ export default function Home() {
 
   return (
     <main className="flex flex-col">
-      <StaticPage data={data} />
+      <div className="container mx-auto">
+        <h1>{data.title}</h1>
+        <div className="mb-10">
+          {data.description && (
+            <div
+              className="rich-text"
+              dangerouslySetInnerHTML={{ __html: data.description }}
+            />
+          )}
+        </div>
+        <div>{data.carousel && <CarouselComponent data={data.carousel} />}</div>
+      </div>
     </main>
   );
 }

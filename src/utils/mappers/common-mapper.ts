@@ -1,4 +1,5 @@
-import { ImageComponentType, LinkComponentType } from "@/domain/cms/common";
+import { ImageComponentType } from "@/domain/cms/components/image-component";
+import { LinkComponentType } from "@/domain/cms/components/link-component";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 
@@ -15,7 +16,7 @@ export const mapRichText = (richText: any): string | undefined => {
         return `<img src="${image.url}" height="${image.height}" width="${image.width}" alt="${image.title}"/>`;
       },
       [BLOCKS.PARAGRAPH]: (node: any, next: any) =>
-        `<p>${next(node.content).replace(/\n/g, "<br/>")}</p>`,
+        `<p>${next(node.content).replaceAll("\n", "<br/>")}</p>`,
       [BLOCKS.TABLE]: (node: any, next: any) =>
         `<div class="relative flex flex-col overflow-scroll">
           <table>

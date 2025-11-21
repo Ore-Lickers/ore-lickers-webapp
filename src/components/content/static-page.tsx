@@ -1,14 +1,12 @@
-import { StaticPageType } from "@/domain/cms/static-page";
 import LinkComponent from "@/components/common/link-component";
 import ContentBlock from "@/components/content/content-block";
 import { CONTENT_TYPE } from "@/utils/constants/contentful";
 import CardBlock from "./card-block";
-import {
-  CardBlockType,
-  CarouselType,
-  ContentBlockType,
-} from "@/domain/cms/content";
 import CarouselComponent from "./carousel";
+import { CardBlockType } from "@/domain/cms/components/card";
+import { CarouselType } from "@/domain/cms/components/carousel";
+import { ContentBlockType } from "@/domain/cms/components/content-block";
+import { StaticPageType } from "@/domain/cms/pages/static-page";
 
 interface StaticPageParams {
   readonly data: StaticPageType;

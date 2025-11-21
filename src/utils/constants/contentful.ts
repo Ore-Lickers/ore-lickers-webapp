@@ -20,3 +20,7 @@ export const CARD_LAYOUT = {
   VERTICAL: "Vertical",
   HORIZONTAL: "Horizontal",
 };
+
+export const PAGE = {
+  HOMEPAGE: "Home",
+};
