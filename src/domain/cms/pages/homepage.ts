@@ -1,4 +1,4 @@
-import { CardBlockType } from "../components/card";
+import { CardBlockResponse, CardBlockType } from "../components/card";
 import { CarouselResponse, CarouselType } from "../components/carousel";
 
 export type HomepageCollectionResponse = {
@@ -13,7 +13,7 @@ export type HomepageResponse = {
     json: Node;
   };
   carousel?: CarouselResponse;
-  cardBlock: CardBlockType;
+  cardBlock: CardBlockResponse;
 };
 
 export type HomepageType = {

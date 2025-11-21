@@ -6,8 +6,12 @@ import { mapImageComponents } from "./common-mapper";
 
 export const mapCarouselResponse = (
   carouselResponse: CarouselResponse | undefined
-): CarouselType => {
-  const { __typename, title, carouselItemsCollection } = carouselResponse || {};
+): CarouselType | undefined => {
+  if (!carouselResponse) {
+    return undefined;
+  }
+
+  const { __typename, title, carouselItemsCollection } = carouselResponse;
   const carouselItems = carouselItemsCollection?.items || [];
   return {
     __typename: __typename || "Carousel",

@@ -2,6 +2,7 @@
 
 import ErrorMessage from "@/components/common/error-message";
 import Loading from "@/components/common/loading";
+import CardBlock from "@/components/content/card-block";
 import CarouselComponent from "@/components/content/carousel";
 import { HomeController } from "@/controllers/home-controller";
 
@@ -28,7 +29,10 @@ export default function Home() {
             />
           )}
         </div>
-        <div>{data.carousel && <CarouselComponent data={data.carousel} />}</div>
+        <div className="mb-10">
+          {data.carousel && <CarouselComponent data={data.carousel} />}
+        </div>
+        <div>{data.cardBlock && <CardBlock data={data.cardBlock} />}</div>
       </div>
     </main>
   );
