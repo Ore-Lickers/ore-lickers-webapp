@@ -5,7 +5,7 @@ export const CAROUSEL_FRAGMENT = gql`
     title
     carouselItemsCollection(limit: 5) {
       items {
-        ...ImageComponentFragment
+        ...AssetFragment
       }
     }
   }

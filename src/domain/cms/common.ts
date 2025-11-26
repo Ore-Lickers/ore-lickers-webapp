@@ -1,8 +1,5 @@
-export type EntryType = {
-  sys: {
-    id: string;
-  };
-  __typename: string;
+export type Collection<T> = {
+  items: T[];
 };
 
 export type GetContentByIdParams = {

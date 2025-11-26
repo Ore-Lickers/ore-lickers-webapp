@@ -1,10 +1,9 @@
+import { Collection } from "../common";
 import { CardBlockResponse, CardBlockType } from "../components/card";
 import { CarouselResponse, CarouselType } from "../components/carousel";
 
 export type HomepageCollectionResponse = {
-  homepageCollection: {
-    items: HomepageResponse[];
-  };
+  homepageCollection: Collection<HomepageResponse>;
 };
 
 export type HomepageResponse = {

@@ -1,13 +1,13 @@
 import { gql } from "graphql-request";
-import { IMAGE_COMPONENT_FRAGMENT } from "../fragments/image-component";
 import { CAROUSEL_FRAGMENT } from "../fragments/carousel";
 import { CARD_BLOCK_FRAGMENT } from "../fragments/card-block";
 import { CARD_FRAGMENT } from "../fragments/card";
 import { LINK_COMPONENT_FRAGMENT } from "../fragments/link-component";
+import { ASSET_FRAGMENT } from "../fragments/asset";
 
 export const GET_HOMEPAGE = gql`
   ${CAROUSEL_FRAGMENT}
-  ${IMAGE_COMPONENT_FRAGMENT}
+  ${ASSET_FRAGMENT}
   ${CARD_BLOCK_FRAGMENT}
   ${CARD_FRAGMENT}
   ${LINK_COMPONENT_FRAGMENT}

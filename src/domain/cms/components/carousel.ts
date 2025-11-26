@@ -1,15 +1,12 @@
-import { ImageComponentType } from "./image-component";
+import { Collection } from "../common";
+import { ImageResponse, ImageType } from "./asset";
 
 export type CarouselResponse = {
-  __typename: string;
   title?: string;
-  carouselItemsCollection: {
-    items: ImageComponentType[];
-  };
+  carouselItemsCollection: Collection<ImageResponse>;
 };
 
 export type CarouselType = {
-  __typename: string;
   title?: string;
-  carouselItems: ImageComponentType[];
+  carouselItems: ImageType[];
 };

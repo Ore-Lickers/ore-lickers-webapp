@@ -1,4 +1,8 @@
-import { ImageComponentType } from "@/domain/cms/components/image-component";
+import {
+  ImageCollectionResponse,
+  ImageResponse,
+  ImageType,
+} from "@/domain/cms/components/asset";
 import { LinkComponentType } from "@/domain/cms/components/link-component";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
@@ -37,21 +41,24 @@ export const mapRichText = (richText: any): string | undefined => {
     : undefined;
 };
 
-export const mapImageComponents = (images: any): ImageComponentType[] => {
-  const mappedImages: ImageComponentType[] = [];
+export const mapImages = (
+  imageCollection: ImageCollectionResponse
+): ImageType[] => {
+  const images = imageCollection?.items || [];
+  const mappedImages: ImageType[] = [];
   for (const image of images) {
-    const mappedImage = mapImageComponent(image);
-    if (mappedImage) {
-      mappedImages.push(mappedImage);
-    }
+    const mappedImage = mapImage(image);
+    mappedImages.push(mappedImage);
   }
   return mappedImages;
 };
 
-export const mapImageComponent = (
-  image: any
-): ImageComponentType | undefined => {
-  return image || undefined;
+export const mapImage = (image: ImageResponse): ImageType => {
+  const { sys } = image;
+  return {
+    id: sys.id,
+    ...image,
+  };
 };
 
 export const mapLinkComponent = (link: any): LinkComponentType | undefined => {

@@ -1,33 +1,21 @@
-import { ImageComponentType } from "@/domain/cms/components/image-component";
+import { ImageType } from "@/domain/cms/components/asset";
 import Image from "next/image";
 
-interface CMSImageParams {
-  readonly data: ImageComponentType;
+interface ImageParams {
+  readonly data: ImageType;
   readonly classes?: string;
 }
 
-// TODO: build image href
-export default function ImageComponent({ data, classes = "" }: CMSImageParams) {
+export default function ImageComponent({ data, classes = "" }: ImageParams) {
   return (
     <div>
-      <div className="hidden lg:block">
-        <Image
-          className={" " + classes}
-          src={data.desktop.url}
-          alt={data.altText}
-          height={data.desktop.height}
-          width={data.desktop.width}
-        />
-      </div>
-      <div className="lg:hidden">
-        <Image
-          className={" " + classes}
-          src={data.mobile?.url ?? data.desktop.url}
-          alt={data.altText}
-          height={data.mobile?.height ?? data.desktop.height}
-          width={data.mobile?.width ?? data.desktop.width}
-        />
-      </div>
+      <Image
+        className={" " + classes}
+        src={data.url}
+        alt={data.title}
+        height={data.height}
+        width={data.width}
+      />
     </div>
   );
 }

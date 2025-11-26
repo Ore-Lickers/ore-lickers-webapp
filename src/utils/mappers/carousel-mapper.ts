@@ -2,7 +2,7 @@ import {
   CarouselResponse,
   CarouselType,
 } from "@/domain/cms/components/carousel";
-import { mapImageComponents } from "./common-mapper";
+import { mapImages } from "./common-mapper";
 
 export const mapCarouselResponse = (
   carouselResponse: CarouselResponse | undefined
@@ -11,11 +11,9 @@ export const mapCarouselResponse = (
     return undefined;
   }
 
-  const { __typename, title, carouselItemsCollection } = carouselResponse;
-  const carouselItems = carouselItemsCollection?.items || [];
+  const { title, carouselItemsCollection } = carouselResponse;
   return {
-    __typename: __typename || "Carousel",
     title,
-    carouselItems: mapImageComponents(carouselItems),
+    carouselItems: mapImages(carouselItemsCollection),
   };
 };
