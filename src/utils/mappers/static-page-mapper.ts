@@ -1,13 +1,9 @@
-import {
-  StaticPageCollectionResponse,
-  StaticPageType,
-} from "@/domain/cms/pages/static-page";
 import { mapCollection } from "./common-mapper";
-import {
-  ContentBlockResponse,
-  ContentBlockType,
-} from "@/domain/cms/components/content-block";
+import { ContentBlockType } from "@/domain/components/content-block-type";
 import { mapContentBlock } from "./content-mapper";
+import { StaticPageType } from "@/domain/pages/static-page-type";
+import { ContentBlockResponse } from "@/domain/response/cms/content-block-response";
+import { StaticPageCollectionResponse } from "@/domain/response/cms/static-page-collection-response";
 
 export const mapStaticPage = (
   apiData: StaticPageCollectionResponse

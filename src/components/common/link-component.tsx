@@ -1,4 +1,4 @@
-import { LinkComponentType } from "@/domain/cms/components/link-component";
+import { LinkComponentType } from "@/domain/components/link-component-type";
 import { BUTTON_TYPE } from "@/utils/constants/contentful";
 import { Button } from "flowbite-react";
 import Link from "next/link";

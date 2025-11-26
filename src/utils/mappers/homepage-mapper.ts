@@ -1,10 +1,8 @@
 import { mapRichText } from "./common-mapper";
-import {
-  HomepageCollectionResponse,
-  HomepageType,
-} from "@/domain/cms/pages/homepage";
 import { mapCarouselResponse } from "./carousel-mapper";
 import { mapCardBlockResponse } from "./card-mapper";
+import { HomepageType } from "@/domain/pages/homepage-type";
+import { HomepageCollectionResponse } from "@/domain/response/cms/homepage-collection-response";
 
 export const mapHomepageCollectionResponse = (
   apiData: HomepageCollectionResponse

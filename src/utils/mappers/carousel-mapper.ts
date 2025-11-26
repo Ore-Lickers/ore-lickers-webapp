@@ -1,9 +1,8 @@
-import {
-  CarouselResponse,
-  CarouselType,
-} from "@/domain/cms/components/carousel";
+import { CarouselType } from "@/domain/components/carousel-type";
 import { mapCollection, mapImage } from "./common-mapper";
-import { ImageResponse, ImageType } from "@/domain/cms/components/asset";
+import { ImageType } from "@/domain/components/image-type";
+import { CarouselResponse } from "@/domain/response/cms/carousel-response";
+import { ImageResponse } from "@/domain/response/cms/image-response";
 
 export const mapCarouselResponse = (
   carouselResponse: CarouselResponse

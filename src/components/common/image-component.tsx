@@ -1,4 +1,4 @@
-import { ImageType } from "@/domain/cms/components/asset";
+import { ImageType } from "@/domain/components/image-type";
 import Image from "next/image";
 
 interface ImageParams {

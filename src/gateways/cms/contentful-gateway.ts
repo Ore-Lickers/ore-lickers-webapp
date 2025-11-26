@@ -1,13 +1,9 @@
-import { GetContentByPageParams } from "@/domain/cms/common";
-import { ContentfulService } from "@/domain/cms/contentful-service";
-import {
-  HomepageCollectionResponse,
-  HomepageType,
-} from "@/domain/cms/pages/homepage";
-import {
-  StaticPageCollectionResponse,
-  StaticPageType,
-} from "@/domain/cms/pages/static-page";
+import { GetContentByPageParams } from "@/domain/misc/get-content-by-page-params";
+import { HomepageType } from "@/domain/pages/homepage-type";
+import { StaticPageType } from "@/domain/pages/static-page-type";
+import { HomepageCollectionResponse } from "@/domain/response/cms/homepage-collection-response";
+import { StaticPageCollectionResponse } from "@/domain/response/cms/static-page-collection-response";
+import { ContentfulService } from "@/domain/services/contentful-service";
 import { GET_HOMEPAGE } from "@/graphql/queries/homepage";
 import { GET_STATIC_PAGE } from "@/graphql/queries/static-page";
 import { mapHomepageCollectionResponse } from "@/utils/mappers/homepage-mapper";

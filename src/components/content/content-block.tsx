@@ -1,7 +1,7 @@
 import LinkComponent from "../common/link-component";
 import ImageComponent from "../common/image-component";
 import Description from "../common/description";
-import { ContentBlockType } from "@/domain/cms/components/content-block";
+import { ContentBlockType } from "@/domain/components/content-block-type";
 
 interface ContentBlockParams {
   readonly data: ContentBlockType;

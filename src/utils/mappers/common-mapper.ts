@@ -1,6 +1,7 @@
-import { Collection } from "@/domain/cms/common";
-import { ImageResponse, ImageType } from "@/domain/cms/components/asset";
-import { LinkComponentType } from "@/domain/cms/components/link-component";
+import { ImageType } from "@/domain/components/image-type";
+import { LinkComponentType } from "@/domain/components/link-component-type";
+import { Collection } from "@/domain/misc/collection";
+import { ImageResponse } from "@/domain/response/cms/image-response";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 

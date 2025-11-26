@@ -1,10 +1,8 @@
-import {
-  CardBlockResponse,
-  CardBlockType,
-  CardResponse,
-  CardType,
-} from "@/domain/cms/components/card";
+import { CardType } from "@/domain/components/card-type";
 import { mapCollection, mapImage, mapRichText } from "./common-mapper";
+import { CardBlockType } from "@/domain/components/card-block-type";
+import { CardBlockResponse } from "@/domain/response/cms/card-block-response";
+import { CardResponse } from "@/domain/response/cms/card-response";
 
 export function mapCardBlockResponse(
   cardBlockResponse: CardBlockResponse

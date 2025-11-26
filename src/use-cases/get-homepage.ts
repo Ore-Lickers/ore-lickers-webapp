@@ -1,5 +1,5 @@
-import { ContentfulService } from "@/domain/cms/contentful-service";
-import { HomepageType } from "@/domain/cms/pages/homepage";
+import { HomepageType } from "@/domain/pages/homepage-type";
+import { ContentfulService } from "@/domain/services/contentful-service";
 
 export const getHomepage = async (
   service: ContentfulService,

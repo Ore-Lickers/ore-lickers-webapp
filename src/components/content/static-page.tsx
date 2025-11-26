@@ -1,5 +1,5 @@
 import ContentBlock from "@/components/content/content-block";
-import { StaticPageType } from "@/domain/cms/pages/static-page";
+import { StaticPageType } from "@/domain/pages/static-page-type";
 
 interface StaticPageParams {
   readonly data: StaticPageType;
