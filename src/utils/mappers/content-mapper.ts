@@ -1,6 +1,7 @@
 import { ContentBlockType } from "@/domain/components/content-block-type";
-import { mapImageResponse, mapRichText } from "./common-mapper";
 import { ContentBlockResponse } from "@/domain/response/cms/content-block-response";
+import { mapImageResponse } from "./image-mapper";
+import { mapRichText } from "./rich-text-mapper";
 
 export const mapContentBlock = (
   contentBlockResponse: ContentBlockResponse

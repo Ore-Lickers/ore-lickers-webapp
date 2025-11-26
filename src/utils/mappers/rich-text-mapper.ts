@@ -1,6 +1,3 @@
-import { ImageType } from "@/domain/components/image-type";
-import { Collection } from "@/domain/misc/collection";
-import { ImageResponse } from "@/domain/response/cms/image-response";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 
@@ -36,25 +33,4 @@ export const mapRichText = (richText: any): string | undefined => {
   return richText?.json
     ? documentToHtmlString(richText.json, options)
     : undefined;
-};
-
-export function mapCollection<R, M>(
-  collection: Collection<R>,
-  func: Function
-): M[] {
-  const items = collection?.items || [];
-  const mappedItems: M[] = [];
-  for (const item of items) {
-    const mappedItem = func(item);
-    mappedItems.push(mappedItem);
-  }
-  return mappedItems;
-}
-
-export const mapImageResponse = (imageResponse: ImageResponse): ImageType => {
-  const { sys } = imageResponse;
-  return {
-    id: sys.id,
-    ...imageResponse,
-  };
 };

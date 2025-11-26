@@ -1,4 +1,4 @@
-import { mapCollection } from "./common-mapper";
+import { mapCollection } from "./collection-mapper";
 import { ContentBlockType } from "@/domain/components/content-block-type";
 import { mapContentBlock } from "./content-mapper";
 import { StaticPageType } from "@/domain/pages/static-page-type";
