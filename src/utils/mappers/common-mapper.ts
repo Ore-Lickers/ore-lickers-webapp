@@ -1,5 +1,4 @@
 import { ImageType } from "@/domain/components/image-type";
-import { LinkComponentType } from "@/domain/components/link-component-type";
 import { Collection } from "@/domain/misc/collection";
 import { ImageResponse } from "@/domain/response/cms/image-response";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
@@ -52,14 +51,10 @@ export function mapCollection<R, M>(
   return mappedItems;
 }
 
-export const mapImage = (image: ImageResponse): ImageType => {
-  const { sys } = image;
+export const mapImageResponse = (imageResponse: ImageResponse): ImageType => {
+  const { sys } = imageResponse;
   return {
     id: sys.id,
-    ...image,
+    ...imageResponse,
   };
-};
-
-export const mapLinkComponent = (link: any): LinkComponentType | undefined => {
-  return link || undefined;
 };

@@ -1,15 +1,15 @@
 import { ContentBlockType } from "@/domain/components/content-block-type";
-import { mapImage, mapLinkComponent, mapRichText } from "./common-mapper";
+import { mapImageResponse, mapRichText } from "./common-mapper";
 import { ContentBlockResponse } from "@/domain/response/cms/content-block-response";
 
 export const mapContentBlock = (
-  apiData: ContentBlockResponse
+  contentBlockResponse: ContentBlockResponse
 ): ContentBlockType => {
-  const { title, description, image, link } = apiData;
+  const { title, description, image, link } = contentBlockResponse;
   return {
     title,
-    image: image ? mapImage(image) : undefined,
+    image: image ? mapImageResponse(image) : undefined,
     description: mapRichText(description),
-    link: mapLinkComponent(link),
+    link,
   };
 };

@@ -5,10 +5,10 @@ import { StaticPageType } from "@/domain/pages/static-page-type";
 import { ContentBlockResponse } from "@/domain/response/cms/content-block-response";
 import { StaticPageCollectionResponse } from "@/domain/response/cms/static-page-collection-response";
 
-export const mapStaticPage = (
-  apiData: StaticPageCollectionResponse
+export const mapStaticPageCollectionResponse = (
+  staticPageCollectionResponse: StaticPageCollectionResponse
 ): StaticPageType => {
-  const items = apiData?.staticPageCollection?.items || [];
+  const items = staticPageCollectionResponse?.staticPageCollection?.items || [];
   const { title, contentCollection } = items[0];
   return {
     title,

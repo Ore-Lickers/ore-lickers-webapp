@@ -7,7 +7,7 @@ import { CmsService } from "@/domain/services/cms-service";
 import { GET_HOMEPAGE } from "@/graphql/queries/homepage";
 import { GET_STATIC_PAGE } from "@/graphql/queries/static-page";
 import { mapHomepageCollectionResponse } from "@/utils/mappers/homepage-mapper";
-import { mapStaticPage } from "@/utils/mappers/static-page-mapper";
+import { mapStaticPageCollectionResponse } from "@/utils/mappers/static-page-mapper";
 import { GraphQLClient } from "graphql-request";
 
 export class ContentfulGateway implements CmsService {
@@ -42,6 +42,6 @@ export class ContentfulGateway implements CmsService {
         page,
       }
     );
-    return mapStaticPage(response);
+    return mapStaticPageCollectionResponse(response);
   }
 }

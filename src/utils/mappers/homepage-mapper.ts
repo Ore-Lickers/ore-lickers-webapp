@@ -5,9 +5,9 @@ import { HomepageType } from "@/domain/pages/homepage-type";
 import { HomepageCollectionResponse } from "@/domain/response/cms/homepage-collection-response";
 
 export const mapHomepageCollectionResponse = (
-  apiData: HomepageCollectionResponse
+  homepageCollectionResponse: HomepageCollectionResponse
 ): HomepageType => {
-  const items = apiData?.homepageCollection?.items || [];
+  const items = homepageCollectionResponse?.homepageCollection?.items || [];
   const { title, description, carousel, cardBlock } = items[0];
   return {
     title,

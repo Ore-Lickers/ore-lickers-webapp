@@ -1,5 +1,5 @@
 import { CarouselType } from "@/domain/components/carousel-type";
-import { mapCollection, mapImage } from "./common-mapper";
+import { mapCollection, mapImageResponse } from "./common-mapper";
 import { ImageType } from "@/domain/components/image-type";
 import { CarouselResponse } from "@/domain/response/cms/carousel-response";
 import { ImageResponse } from "@/domain/response/cms/image-response";
@@ -12,7 +12,7 @@ export const mapCarouselResponse = (
     title,
     carouselItems: mapCollection<ImageResponse, ImageType>(
       carouselItemsCollection,
-      mapImage
+      mapImageResponse
     ),
   };
 };

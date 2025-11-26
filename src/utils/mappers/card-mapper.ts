@@ -1,5 +1,5 @@
 import { CardType } from "@/domain/components/card-type";
-import { mapCollection, mapImage, mapRichText } from "./common-mapper";
+import { mapCollection, mapImageResponse, mapRichText } from "./common-mapper";
 import { CardBlockType } from "@/domain/components/card-block-type";
 import { CardBlockResponse } from "@/domain/response/cms/card-block-response";
 import { CardResponse } from "@/domain/response/cms/card-response";
@@ -11,15 +11,18 @@ export function mapCardBlockResponse(
   return {
     title,
     layout,
-    cards: mapCollection<CardResponse, CardType>(cardsCollection, mapCard),
+    cards: mapCollection<CardResponse, CardType>(
+      cardsCollection,
+      mapCardResponse
+    ),
   };
 }
 
-export function mapCard(card: CardResponse): CardType {
-  const { layout, image, title, description, link } = card;
+export function mapCardResponse(cardResponse: CardResponse): CardType {
+  const { layout, image, title, description, link } = cardResponse;
   return {
     layout,
-    image: image ? mapImage(image) : undefined,
+    image: image ? mapImageResponse(image) : undefined,
     title,
     description: mapRichText(description)!,
     link,
