@@ -1,8 +1,8 @@
 import { HomepageType } from "@/domain/pages/homepage-type";
-import { ContentfulService } from "@/domain/services/contentful-service";
+import { CmsService } from "@/domain/services/cms-service";
 
 export const getHomepage = async (
-  service: ContentfulService,
+  service: CmsService,
   page: string
 ): Promise<HomepageType> => {
   return await service.getHomepage({ page });

@@ -1,8 +1,8 @@
 import { StaticPageType } from "@/domain/pages/static-page-type";
-import { ContentfulService } from "@/domain/services/contentful-service";
+import { CmsService } from "@/domain/services/cms-service";
 
 export const getStaticPage = async (
-  service: ContentfulService,
+  service: CmsService,
   page: string
 ): Promise<StaticPageType> => {
   return await service.getStaticPage({ page });
