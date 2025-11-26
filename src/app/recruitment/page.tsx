@@ -10,7 +10,7 @@ export default function Recruitment() {
     RecruitmentController.getRecruitmentPageContent();
   if (error) {
     return (
-      <ErrorMessage message="Something went wrong when fetching aboutpage data." />
+      <ErrorMessage message="Something went wrong when fetching recruitment page data." />
     );
   }
   if (isLoading || !data) {

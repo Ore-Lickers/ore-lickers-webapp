@@ -9,7 +9,7 @@ export default function About() {
   const { data, isLoading, error } = AboutController.getAboutPageContent();
   if (error) {
     return (
-      <ErrorMessage message="Something went wrong when fetching aboutpage data." />
+      <ErrorMessage message="Something went wrong when fetching about-us page data." />
     );
   }
   if (isLoading || !data) {

@@ -9,7 +9,7 @@ export default function HowTo() {
   const { data, isLoading, error } = HowToController.getHowToPageContent();
   if (error) {
     return (
-      <ErrorMessage message="Something went wrong when fetching aboutpage data." />
+      <ErrorMessage message="Something went wrong when fetching how-to page data." />
     );
   }
   if (isLoading || !data) {
