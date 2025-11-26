@@ -1,5 +1,6 @@
 "use client";
 
+import Description from "@/components/common/description";
 import ErrorMessage from "@/components/common/error-message";
 import Loading from "@/components/common/loading";
 import CardBlock from "@/components/content/card-block";
@@ -22,12 +23,7 @@ export default function Home() {
       <div className="container mx-auto">
         <h1>{data.title}</h1>
         <div className="mb-10">
-          {data.description && (
-            <div
-              className="rich-text"
-              dangerouslySetInnerHTML={{ __html: data.description }}
-            />
-          )}
+          {data.description && <Description data={data.description} />}
         </div>
         <div className="mb-10">
           {data.carousel && <CarouselComponent data={data.carousel} />}
