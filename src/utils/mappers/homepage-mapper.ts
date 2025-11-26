@@ -14,7 +14,7 @@ export const mapHomepageCollectionResponse = (
   return {
     title,
     description: mapRichText(description)!,
-    carousel: mapCarouselResponse(carousel),
+    carousel: carousel ? mapCarouselResponse(carousel) : undefined,
     cardBlock: mapCardBlockResponse(cardBlock),
   };
 };

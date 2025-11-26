@@ -1,13 +1,13 @@
-import {
-  GetContentByIdParams,
-  GetContentByPageParams,
-} from "@/domain/cms/common";
+import { GetContentByPageParams } from "@/domain/cms/common";
 import { ContentfulService } from "@/domain/cms/contentful-service";
 import {
   HomepageCollectionResponse,
   HomepageType,
 } from "@/domain/cms/pages/homepage";
-import { StaticPageResponse } from "@/domain/cms/pages/static-page";
+import {
+  StaticPageCollectionResponse,
+  StaticPageType,
+} from "@/domain/cms/pages/static-page";
 import { GET_HOMEPAGE } from "@/graphql/queries/homepage";
 import { GET_STATIC_PAGE } from "@/graphql/queries/static-page";
 import { mapHomepageCollectionResponse } from "@/utils/mappers/homepage-mapper";
@@ -38,11 +38,14 @@ export class ContentfulGateway implements ContentfulService {
   }
 
   async getStaticPage({
-    id,
-  }: GetContentByIdParams): Promise<StaticPageResponse> {
-    const response = await this.client.request<any>(GET_STATIC_PAGE, {
-      id,
-    });
+    page,
+  }: GetContentByPageParams): Promise<StaticPageType> {
+    const response = await this.client.request<StaticPageCollectionResponse>(
+      GET_STATIC_PAGE,
+      {
+        page,
+      }
+    );
     return mapStaticPage(response);
   }
 }

@@ -17,6 +17,13 @@ export const GET_HOMEPAGE = gql`
         title
         description {
           json
+          links {
+            assets {
+              block {
+                ...AssetFragment
+              }
+            }
+          }
         }
         carousel {
           ...CarouselFragment

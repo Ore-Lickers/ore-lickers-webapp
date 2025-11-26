@@ -11,9 +11,9 @@ export default function ContentBlock({ data }: ContentBlockParams) {
   return (
     <div className="mb-5">
       {data.title && <h2>{data.title}</h2>}
-      {data.description1 && (
+      {data.description && (
         <div className="mb-5">
-          <Description data={data.description1} />
+          <Description data={data.description} />
         </div>
       )}
       {data.image && (
@@ -21,7 +21,6 @@ export default function ContentBlock({ data }: ContentBlockParams) {
           <ImageComponent data={data.image} />
         </div>
       )}
-      {data.description2 && <Description data={data.description2} />}
       {data.link && <LinkComponent data={data.link} />}
     </div>
   );

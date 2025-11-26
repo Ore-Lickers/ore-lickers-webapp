@@ -1,19 +1,19 @@
-import { EntryType } from "../common";
-import { CardBlockType } from "../components/card";
-import { CarouselType } from "../components/carousel";
-import { ContentBlockType } from "../components/content-block";
-import { LinkComponentType } from "../components/link-component";
+import { Collection } from "../common";
+import {
+  ContentBlockResponse,
+  ContentBlockType,
+} from "../components/content-block";
+
+export type StaticPageCollectionResponse = {
+  staticPageCollection: Collection<StaticPageResponse>;
+};
 
 export type StaticPageResponse = {
   title: string;
-  overviewText?: string;
-  overviewButton?: LinkComponentType;
-  content: EntryType[];
+  contentCollection: Collection<ContentBlockResponse>;
 };
 
 export type StaticPageType = {
   title: string;
-  overviewText?: string;
-  overviewButton?: LinkComponentType;
-  content: (ContentBlockType | CardBlockType | CarouselType)[];
+  content: ContentBlockType[];
 };

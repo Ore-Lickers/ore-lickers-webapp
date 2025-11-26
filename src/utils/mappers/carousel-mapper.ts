@@ -2,18 +2,18 @@ import {
   CarouselResponse,
   CarouselType,
 } from "@/domain/cms/components/carousel";
-import { mapImages } from "./common-mapper";
+import { mapCollection, mapImage } from "./common-mapper";
+import { ImageResponse, ImageType } from "@/domain/cms/components/asset";
 
 export const mapCarouselResponse = (
-  carouselResponse: CarouselResponse | undefined
-): CarouselType | undefined => {
-  if (!carouselResponse) {
-    return undefined;
-  }
-
+  carouselResponse: CarouselResponse
+): CarouselType => {
   const { title, carouselItemsCollection } = carouselResponse;
   return {
     title,
-    carouselItems: mapImages(carouselItemsCollection),
+    carouselItems: mapCollection<ImageResponse, ImageType>(
+      carouselItemsCollection,
+      mapImage
+    ),
   };
 };

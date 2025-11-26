@@ -23,4 +23,8 @@ export const CARD_LAYOUT = {
 
 export const PAGE = {
   HOMEPAGE: "Home",
+  HOW_TO: "How to",
+  BUY_BACK: "Buy back",
+  RECRUITMENT: "Recruitment",
+  ABOUT_US: "About us",
 };

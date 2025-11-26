@@ -1,8 +1,5 @@
-import {
-  ImageCollectionResponse,
-  ImageResponse,
-  ImageType,
-} from "@/domain/cms/components/asset";
+import { Collection } from "@/domain/cms/common";
+import { ImageResponse, ImageType } from "@/domain/cms/components/asset";
 import { LinkComponentType } from "@/domain/cms/components/link-component";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
@@ -41,17 +38,18 @@ export const mapRichText = (richText: any): string | undefined => {
     : undefined;
 };
 
-export const mapImages = (
-  imageCollection: ImageCollectionResponse
-): ImageType[] => {
-  const images = imageCollection?.items || [];
-  const mappedImages: ImageType[] = [];
-  for (const image of images) {
-    const mappedImage = mapImage(image);
-    mappedImages.push(mappedImage);
+export function mapCollection<R, M>(
+  collection: Collection<R>,
+  func: Function
+): M[] {
+  const items = collection?.items || [];
+  const mappedItems: M[] = [];
+  for (const item of items) {
+    const mappedItem = func(item);
+    mappedItems.push(mappedItem);
   }
-  return mappedImages;
-};
+  return mappedItems;
+}
 
 export const mapImage = (image: ImageResponse): ImageType => {
   const { sys } = image;

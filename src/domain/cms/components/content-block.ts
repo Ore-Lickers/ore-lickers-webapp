@@ -1,11 +1,18 @@
-import { ImageComponentType } from "./image-component";
+import { ImageResponse, ImageType } from "./asset";
 import { LinkComponentType } from "./link-component";
 
-export type ContentBlockType = {
-  __typename: string;
+export type ContentBlockResponse = {
   title?: string;
-  description1?: string;
-  image?: ImageComponentType;
-  description2?: string;
+  description?: {
+    json: Node;
+  };
+  image?: ImageResponse;
+  link?: LinkComponentType;
+};
+
+export type ContentBlockType = {
+  title?: string;
+  description?: string;
+  image?: ImageType;
   link?: LinkComponentType;
 };
