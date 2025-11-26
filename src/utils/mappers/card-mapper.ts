@@ -4,7 +4,7 @@ import {
   CardResponse,
   CardType,
 } from "@/domain/cms/components/card";
-import { mapCollection, mapImage } from "./common-mapper";
+import { mapCollection, mapImage, mapRichText } from "./common-mapper";
 
 export function mapCardBlockResponse(
   cardBlockResponse: CardBlockResponse
@@ -23,7 +23,7 @@ export function mapCard(card: CardResponse): CardType {
     layout,
     image: image ? mapImage(image) : undefined,
     title,
-    description,
+    description: mapRichText(description)!,
     link,
   };
 }

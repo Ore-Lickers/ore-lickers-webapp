@@ -12,7 +12,9 @@ export type CardResponse = {
   layout: "Vertical" | "Horizontal";
   image?: ImageResponse;
   title?: string;
-  description: string;
+  description: {
+    json: Node;
+  };
   link?: LinkComponentType;
 };
 
