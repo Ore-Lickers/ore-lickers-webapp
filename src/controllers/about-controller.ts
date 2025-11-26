@@ -1,15 +1,13 @@
-import { contentfulSettings } from "@/settings/contentful-settings";
 import { getStaticPage } from "@/use-cases/get-static-page";
+import { PAGE } from "@/utils/constants/contentful";
 import instance from "@/utils/services";
 import { useQuery } from "@tanstack/react-query";
-
-const settings = contentfulSettings[process.env.NODE_ENV];
 
 export class AboutController {
   static getAboutPageContent() {
     return useQuery({
       queryKey: ["useAboutPageContent"],
-      queryFn: () => getStaticPage(instance.cms, settings.aboutUsContentId),
+      queryFn: () => getStaticPage(instance.cms, PAGE.ABOUT_US),
     });
   }
 }
