@@ -17,9 +17,5 @@ export default function Recruitment() {
     return <Loading />;
   }
 
-  return (
-    <main className="flex flex-col">
-      <StaticPage data={data} />
-    </main>
-  );
+  return <StaticPage data={data} />;
 }

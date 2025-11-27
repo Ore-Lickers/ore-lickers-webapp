@@ -19,17 +19,15 @@ export default function Home() {
   }
 
   return (
-    <main className="flex flex-col">
-      <div className="container mx-auto">
-        <h1>{data.title}</h1>
-        <div className="mb-10">
-          {data.description && <Description data={data.description} />}
-        </div>
-        <div className="mb-10">
-          {data.carousel && <CarouselComponent data={data.carousel} />}
-        </div>
-        <div>{data.cardBlock && <CardBlock data={data.cardBlock} />}</div>
+    <div>
+      <h1>{data.title}</h1>
+      <div className="mb-10">
+        {data.description && <Description data={data.description} />}
       </div>
-    </main>
+      <div className="mb-10">
+        {data.carousel && <CarouselComponent data={data.carousel} />}
+      </div>
+      <div>{data.cardBlock && <CardBlock data={data.cardBlock} />}</div>
+    </div>
   );
 }
