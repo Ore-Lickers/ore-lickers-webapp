@@ -25,7 +25,7 @@ export default function RootLayout({
         <body className={inter.className}>
           <ThemeInit />
           <Header />
-          <main className="flex flex-col bg-[url(/space-background.jpg)] bg-cover min-h-screen">
+          <main className="flex flex-col bg-[url(/space-background.jpg)] min-h-screen">
             <div className="container mx-auto bg-black p-16 pt-20">
               <div className="page-content">{children}</div>
               <FooterComponent />
