@@ -1,5 +1,5 @@
 import { CardBlockType } from "@/domain/components/card-block-type";
-import Card from "./card";
+import CardComponent from "./card";
 import { CARD_BLOCK_LAYOUT } from "@/utils/constants/contentful";
 
 interface CardBlockParams {
@@ -27,7 +27,11 @@ export default function CardBlock({ data }: CardBlockParams) {
       <div className={"grid gap-4 grid-cols-1 " + gridCols}>
         {data.cards.map((card, i) => {
           return (
-            <Card key={"card-" + i} data={card} classes={addSpanClass(i)} />
+            <CardComponent
+              key={"card-" + i}
+              data={card}
+              classes={addSpanClass(i)}
+            />
           );
         })}
       </div>
