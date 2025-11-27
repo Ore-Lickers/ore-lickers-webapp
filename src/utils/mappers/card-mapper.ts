@@ -4,9 +4,8 @@ import { mapImageResponse } from "./image-mapper";
 import { mapRichText } from "./rich-text-mapper";
 
 export function mapCardResponse(cardResponse: CardResponse): CardType {
-  const { layout, image, title, description, link } = cardResponse;
+  const { image, title, description, link } = cardResponse;
   return {
-    layout,
     image: image ? mapImageResponse(image) : undefined,
     title,
     description: mapRichText(description)!,
