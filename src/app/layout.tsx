@@ -25,7 +25,7 @@ export default function RootLayout({
         <body className={inter.className}>
           <ThemeInit />
           <Header />
-          <div className="p-16 sm:ml-64">
+          <div className="p-16 pt-20">
             <div className="page-content">{children}</div>
 
             <FooterComponent />
