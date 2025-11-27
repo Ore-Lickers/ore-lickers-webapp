@@ -4,6 +4,7 @@ import "./globals.css";
 import React from "react";
 import { Provider } from "@/utils/providers";
 import Header from "@/components/header/header";
+import { ThemeInit } from "@/../.flowbite-react/init";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,9 +19,10 @@ export default function RootLayout({
   readonly children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <Provider>
         <body className={inter.className}>
+          <ThemeInit />
           <Header />
           <div className="p-16 sm:ml-64 page-content">{children}</div>
         </body>

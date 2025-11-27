@@ -4,7 +4,7 @@ import Image from "next/image";
 
 interface ImageParams {
   readonly data: ImageType;
-  readonly classes?: string;
+  readonly classes?: any;
   readonly resize?: ResizeParams;
 }
 
@@ -17,7 +17,7 @@ export default function ImageComponent({
   const url = `${data.url}${urlParams}`;
   return (
     <Image
-      className={" " + classes}
+      className={classes}
       src={url}
       alt={data.title}
       height={resize?.h || data.height}
