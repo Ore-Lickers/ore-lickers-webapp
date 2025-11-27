@@ -16,9 +16,5 @@ export default function BuyBack() {
     return <Loading />;
   }
 
-  return (
-    <main className="flex flex-col">
-      <StaticPage data={data} />
-    </main>
-  );
+  return <StaticPage data={data} />;
 }

@@ -25,11 +25,12 @@ export default function RootLayout({
         <body className={inter.className}>
           <ThemeInit />
           <Header />
-          <div className="p-16 pt-20">
-            <div className="page-content">{children}</div>
-
-            <FooterComponent />
-          </div>
+          <main className="flex flex-col bg-[url(/space-background.jpg)] bg-cover min-h-screen">
+            <div className="container mx-auto bg-black p-16 pt-20">
+              <div className="page-content">{children}</div>
+              <FooterComponent />
+            </div>
+          </main>
         </body>
       </Provider>
     </html>

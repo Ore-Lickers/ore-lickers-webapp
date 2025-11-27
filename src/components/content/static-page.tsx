@@ -7,7 +7,7 @@ interface StaticPageParams {
 
 export default function StaticPage({ data }: StaticPageParams) {
   return (
-    <div className="container mx-auto">
+    <div>
       <h1>{data.title}</h1>
       <div>
         {data.content.map((item, i) => (
