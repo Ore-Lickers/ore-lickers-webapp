@@ -1,8 +1,8 @@
-import { CardType } from "@/domain/cms/content";
 import { CARD_LAYOUT } from "@/utils/constants/contentful";
 import ImageComponent from "../common/image-component";
 import LinkComponent from "../common/link-component";
 import Description from "../common/description";
+import { CardType } from "@/domain/components/card-type";
 
 interface CardParams {
   readonly data: CardType;

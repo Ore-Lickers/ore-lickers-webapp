@@ -1,4 +1,4 @@
-import { CardBlockType } from "@/domain/cms/content";
+import { CardBlockType } from "@/domain/components/card-block-type";
 import Card from "./card";
 import { CARD_BLOCK_LAYOUT } from "@/utils/constants/contentful";
 

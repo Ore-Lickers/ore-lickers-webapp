@@ -1,22 +1,13 @@
-import { ContentfulGateway } from "@/gateways/cms/contentful-gateway";
-import { contentfulSettings } from "@/settings/contentful-settings";
 import { getStaticPage } from "@/use-cases/get-static-page";
+import { PAGE } from "@/utils/constants/contentful";
+import services from "@/utils/services";
 import { useQuery } from "@tanstack/react-query";
 
-const settings = contentfulSettings[process.env.NODE_ENV];
-
-export const HowToController = () => {
-  const getHowToPageContent = async () => {
-    return await getStaticPage(ContentfulGateway(), settings.howToContentId);
-  };
-
-  const useHowToPageContent = () =>
-    useQuery({
+export class HowToController {
+  static getHowToPageContent() {
+    return useQuery({
       queryKey: ["useHowToPageContent"],
-      queryFn: getHowToPageContent,
+      queryFn: () => getStaticPage(services.cms, PAGE.HOW_TO),
     });
-
-  return {
-    useHowToPageContent,
-  };
-};
+  }
+}
