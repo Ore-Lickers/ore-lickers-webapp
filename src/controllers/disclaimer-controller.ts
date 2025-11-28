@@ -3,11 +3,11 @@ import { PAGE } from "@/utils/constants/contentful";
 import services from "@/utils/services";
 import { useQuery } from "@tanstack/react-query";
 
-export class BuybackController {
-  static getBuybackPageContent() {
+export class DisclaimerController {
+  static getDisclaimerPageContent() {
     return useQuery({
-      queryKey: ["useBuyBackPageContent"],
-      queryFn: () => getStaticPage(services.cms, PAGE.BUYBACK),
+      queryKey: ["useDisclaimerPageContent"],
+      queryFn: () => getStaticPage(services.cms, PAGE.DISCLAIMER),
     });
   }
 }

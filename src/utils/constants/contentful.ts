@@ -19,7 +19,8 @@ export const CARD_BLOCK_LAYOUT = {
 export const PAGE = {
   HOMEPAGE: "Home",
   HOW_TO: "How to",
-  BUY_BACK: "Buy back",
+  BUYBACK: "Buyback",
   RECRUITMENT: "Recruitment",
   ABOUT_US: "About us",
+  DISCLAIMER: "Disclaimer",
 };
