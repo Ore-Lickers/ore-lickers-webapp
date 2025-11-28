@@ -1,4 +1,4 @@
-import { Collection } from "@/domain/common";
+import { Collection } from "@/domain/misc/collection";
 import { CardResponse } from "./card-response";
 
 export type CardBlockResponse = {
