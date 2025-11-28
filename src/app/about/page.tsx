@@ -6,19 +6,15 @@ import StaticPage from "@/components/content/static-page";
 import { AboutController } from "@/controllers/about-controller";
 
 export default function About() {
-  const { data, isLoading, error } = AboutController().useAboutPageContent();
+  const { data, isLoading, error } = AboutController.getAboutPageContent();
   if (error) {
     return (
-      <ErrorMessage message="Something went wrong when fetching aboutpage data." />
+      <ErrorMessage message="Something went wrong when fetching about-us page data." />
     );
   }
   if (isLoading || !data) {
     return <Loading />;
   }
 
-  return (
-    <main className="flex flex-col">
-      <StaticPage data={data} />
-    </main>
-  );
+  return <StaticPage data={data} />;
 }

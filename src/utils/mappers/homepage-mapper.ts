@@ -1,0 +1,18 @@
+import { mapCarouselResponse } from "./carousel-mapper";
+import { HomepageType } from "@/domain/pages/homepage-type";
+import { HomepageCollectionResponse } from "@/domain/response/cms/homepage-collection-response";
+import { mapRichText } from "./rich-text-mapper";
+import { mapCardBlockResponse } from "./card-block-mapper";
+
+export const mapHomepageCollectionResponse = (
+  homepageCollectionResponse: HomepageCollectionResponse
+): HomepageType => {
+  const items = homepageCollectionResponse?.homepageCollection?.items || [];
+  const { title, description, carousel, cardBlock } = items[0];
+  return {
+    title,
+    description: mapRichText(description)!,
+    carousel: carousel ? mapCarouselResponse(carousel) : undefined,
+    cardBlock: mapCardBlockResponse(cardBlock),
+  };
+};

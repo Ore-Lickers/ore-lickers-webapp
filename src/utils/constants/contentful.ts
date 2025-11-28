@@ -16,7 +16,11 @@ export const CARD_BLOCK_LAYOUT = {
   ONE_ONE_ONE_ONE: "1 - 1 - 1 - 1",
 };
 
-export const CARD_LAYOUT = {
-  VERTICAL: "Vertical",
-  HORIZONTAL: "Horizontal",
+export const PAGE = {
+  HOMEPAGE: "Home",
+  HOW_TO: "How to",
+  BUYBACK: "Buyback",
+  RECRUITMENT: "Recruitment",
+  ABOUT_US: "About us",
+  DISCLAIMER: "Disclaimer",
 };

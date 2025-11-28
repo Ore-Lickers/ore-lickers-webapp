@@ -1,33 +1,40 @@
-import { ImageComponentType } from "@/domain/cms/common";
+import { ImageType } from "@/domain/components/image-type";
+import { ResizeParams } from "@/domain/misc/resize-params";
 import Image from "next/image";
 
-interface CMSImageParams {
-  readonly data: ImageComponentType;
-  readonly classes?: string;
+interface ImageParams {
+  readonly data: ImageType;
+  readonly classes?: any;
+  readonly resize?: ResizeParams;
 }
 
-// TODO: build image href
-export default function ImageComponent({ data, classes = "" }: CMSImageParams) {
+export default function ImageComponent({
+  data,
+  classes = "",
+  resize,
+}: ImageParams) {
+  const urlParams = getUrlParams(resize);
+  const url = `${data.url}${urlParams}`;
   return (
-    <div>
-      <div className="hidden lg:block">
-        <Image
-          className={" " + classes}
-          src={data.desktop.url}
-          alt={data.altText}
-          height={data.desktop.height}
-          width={data.desktop.width}
-        />
-      </div>
-      <div className="lg:hidden">
-        <Image
-          className={" " + classes}
-          src={data.mobile?.url ?? data.desktop.url}
-          alt={data.altText}
-          height={data.mobile?.height ?? data.desktop.height}
-          width={data.mobile?.width ?? data.desktop.width}
-        />
-      </div>
-    </div>
+    <Image
+      className={classes}
+      src={url}
+      alt={data.title}
+      height={resize?.h || data.height}
+      width={resize?.w || data.width}
+    />
   );
+}
+
+function getUrlParams(resize?: ResizeParams) {
+  if (!resize) {
+    return "";
+  }
+
+  const params = Object.keys(resize)
+    .filter((key) => (resize as any)[key])
+    .map((key) => `${key}=${(resize as any)[key]}`)
+    .join("&");
+
+  return "?" + params;
 }

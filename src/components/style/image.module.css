@@ -1,0 +1,26 @@
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+  width: 100%;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.cardImage {
+  align-items: center;
+}
+
+.cardImage img {
+  width: 110px;
+  height: 110px;
+  margin: 16px;
+}

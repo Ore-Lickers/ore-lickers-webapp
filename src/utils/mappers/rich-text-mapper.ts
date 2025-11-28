@@ -1,4 +1,3 @@
-import { ImageComponentType, LinkComponentType } from "@/domain/cms/common";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 
@@ -15,7 +14,7 @@ export const mapRichText = (richText: any): string | undefined => {
         return `<img src="${image.url}" height="${image.height}" width="${image.width}" alt="${image.title}"/>`;
       },
       [BLOCKS.PARAGRAPH]: (node: any, next: any) =>
-        `<p>${next(node.content).replace(/\n/g, "<br/>")}</p>`,
+        `<p>${next(node.content).replaceAll("\n", "<br/>")}</p>`,
       [BLOCKS.TABLE]: (node: any, next: any) =>
         `<div class="relative flex flex-col overflow-scroll">
           <table>
@@ -34,25 +33,4 @@ export const mapRichText = (richText: any): string | undefined => {
   return richText?.json
     ? documentToHtmlString(richText.json, options)
     : undefined;
-};
-
-export const mapImageComponents = (images: any): ImageComponentType[] => {
-  const mappedImages: ImageComponentType[] = [];
-  for (const image of images) {
-    const mappedImage = mapImageComponent(image);
-    if (mappedImage) {
-      mappedImages.push(mappedImage);
-    }
-  }
-  return mappedImages;
-};
-
-export const mapImageComponent = (
-  image: any
-): ImageComponentType | undefined => {
-  return image || undefined;
-};
-
-export const mapLinkComponent = (link: any): LinkComponentType | undefined => {
-  return link || undefined;
 };

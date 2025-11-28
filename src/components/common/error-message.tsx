@@ -1,5 +1,4 @@
 import { Alert } from "flowbite-react";
-import React from "react";
 import { HiInformationCircle } from "react-icons/hi";
 
 interface ErrorMessageProps {
