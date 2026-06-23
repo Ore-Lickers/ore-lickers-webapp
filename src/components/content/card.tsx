@@ -20,14 +20,14 @@ export default function CardComponent({ data, classes = "" }: CardParams) {
       horizontal
     >
       {data.title && (
-        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <h5 className="text-2xl font-bold tracking-tight text-white">
           {data.title}
         </h5>
       )}
       {data.description && (
         <Description
           data={data.description}
-          classes="font-normal text-gray-700 dark:text-gray-400"
+          classes="font-normal text-gray-400"
         />
       )}
       {data.link && <LinkComponent data={data.link} />}
