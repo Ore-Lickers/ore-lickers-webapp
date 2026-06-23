@@ -10,8 +10,8 @@ export default function FooterComponent() {
   return (
     <div className="container mx-auto">
       <div className="mt-8">
-        <Footer container>
-          <FooterCopyright href="#" by="Ore Lickers™" year={2025} />
+        <Footer container bgDark>
+          <FooterCopyright href="#" by="Ore Lickers™" year={2026} />
           <FooterLinkGroup>
             <FooterLink href="/about">About</FooterLink>
             <FooterLink href="/disclaimer">Disclaimer</FooterLink>
