@@ -11,13 +11,22 @@ export default function FooterComponent() {
     <div className="container mx-auto">
       <div className="mt-8">
         <Footer container bgDark>
-          <FooterCopyright href="#" by="Ore Lickers™" year={2026} />
+          <FooterCopyright
+            className="text-gray-400"
+            href="#"
+            by="Ore Lickers™"
+            year={2026}
+          />
           <FooterLinkGroup>
-            <FooterLink href="/about">About</FooterLink>
-            <FooterLink href="/disclaimer">Disclaimer</FooterLink>
+            <FooterLink className="text-white" href="/about">
+              About
+            </FooterLink>
+            <FooterLink className="text-white" href="/disclaimer">
+              Disclaimer
+            </FooterLink>
             <Link
               href="https://discord.gg/BcPvPzvGGB"
-              className="text-body hover:text-heading mr-6"
+              className="text-white text-body hover:text-heading mr-6"
             >
               <svg
                 className="w-5 h-5"
