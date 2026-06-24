@@ -7,7 +7,7 @@ import { FaBars } from "react-icons/fa6";
 export default function Header() {
   const { isNavigationOpen, toggleNavigation, closeNavigation } = useUIStore();
   return (
-    <header className="fixed top-0 w-full z-[1000]">
+    <header className="fixed top-0 w-full z-1000">
       <nav className="border-gray-200 px-4 lg:px-6 py-2.5 bg-gray-800">
         <div className="flex flex-wrap justify-between items-center mx-auto container">
           <Link href="/" className="flex items-center">
