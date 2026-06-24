@@ -10,23 +10,20 @@ interface CarouselParams {
 }
 
 export default function CarouselComponent({ data }: CarouselParams) {
-  console.log(data);
   return (
-    <div>
-      <Carousel showThumbs={false}>
-        {data.carouselItems.map((image, i) => {
-          const resize: ResizeParams = { h: 500, w: 1600, fit: "thumb" };
-          return (
-            <div key={"carousel-image-" + i} className={styles.wrapper}>
-              <ImageComponent
-                data={image}
-                resize={resize}
-                classes={styles.image}
-              />
-            </div>
-          );
-        })}
-      </Carousel>
-    </div>
+    <Carousel showThumbs={false}>
+      {data.carouselItems.map((image, i) => {
+        const resize: ResizeParams = { h: 500, w: 1600, fit: "thumb" };
+        return (
+          <div key={"carousel-image-" + i} className={styles.wrapper}>
+            <ImageComponent
+              data={image}
+              resize={resize}
+              classes={styles.image}
+            />
+          </div>
+        );
+      })}
+    </Carousel>
   );
 }
