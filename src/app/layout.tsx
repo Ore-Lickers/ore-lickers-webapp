@@ -4,7 +4,6 @@ import "./globals.css";
 import React from "react";
 import { Provider } from "@/utils/providers";
 import Header from "@/components/header/header";
-import { ThemeInit } from "@/../.flowbite-react/init";
 import FooterComponent from "@/components/footer/footer";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,7 +22,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <Provider>
         <body className={inter.className}>
-          <ThemeInit />
           <Header />
           <main className="flex flex-col bg-[url(/space-background.jpg)] min-h-screen">
             <div className="container mx-auto bg-black p-16 pt-20">
