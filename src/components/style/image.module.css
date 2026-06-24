@@ -17,6 +17,8 @@
 
 .cardImage {
   align-items: center;
+  background-color: var(--gray-800);
+  border-color: rgb(55 65 81 / var(--tw-border-opacity, 1));
 }
 
 .cardImage img {
