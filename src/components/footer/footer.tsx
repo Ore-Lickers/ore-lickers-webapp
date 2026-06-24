@@ -4,7 +4,6 @@ import {
   FooterLink,
   Footer,
 } from "flowbite-react";
-import Link from "next/link";
 
 export default function FooterComponent() {
   return (
